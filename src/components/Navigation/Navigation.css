@@ -1,0 +1,31 @@
+.header__list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item__text {
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.item__search {
+    width: 655px;
+    background: none;
+    border: none;
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.item__search-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--background-secondary, #393B3C);
+    opacity: 1;
+    border-radius: 8px;
+    padding: 16px;
+}
