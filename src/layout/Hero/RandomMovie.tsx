@@ -1,30 +1,68 @@
+'use client'
+import { useQuery } from "@tanstack/react-query"
 import "./RandomMovie.css"
+import Image from "next/image"
 
+const RandomMovie = () => {
+    const { data: movie, isLoading, error } = useQuery({
+        queryKey: ['random-movie'],
+        queryFn: async () => {
+            const response = await fetch('https://cinemaguide.skillbox.cc/')
+            if (!response.ok) throw new Error('Ошибка загрузки фильма')
+            return response.json()
+        },
+        staleTime: 0
+    })
 
-export const RandomMovie = ({ rating, date, genre, timeToMovie, name, description,  }) => {
+    if (isLoading) {
+        return (
+            <div className="loading">
+                <div className="spinner"></div>
+            </div>
+        )
+    }
+
+    if (error) {
+        return <div className="error">Ошибка: {error.message}</div>
+    }
+
+    if (!movie) {
+        return <div className="error">Фильм не найден</div>
+    }
+
     return (
-        <div className="container">
-            <div className="randomMovie__container">
-                <div className="randomMovie__info">
-                    <div className="info__data">
-                        <span className="info__data-up">{rating}</span>
-                        <span className="info__data-up">{date}</span>
-                        <span className="info__data-up">{genre}</span>
-                        <span className="info__data-up">{timeToMovie}</span>
-                    </div>
-                    <h1 className="info__title">{name}</h1>
-                    <p className="info__decription">{description}</p>
-                    <div className="info__buttons">
-                        <button className="info__btn"></button>
-                        <button className="info__btn"></button>
-                        <button className="info__btn"></button>
-                        <button className="info__btn"></button>
-                    </div>
-                </div>
-                <div className="randomMovie__content-image">
+        <div className="card">
+            {/* Постер */}
+            <div className="poster">
+                {movie.posterUrl ? (
+                    <Image
+                        src={movie.posterUrl.startsWith('http')
+                            ? movie.posterUrl
+                            : `https://cinemaguide.skillbox.cc${movie.posterUrl}`}
+                        alt={`Постер ${movie.title}`}
+                        className="poster-image"
+                        loading="lazy"
+                    />
+                ) : (
+                    <div className="no-poster">Нет постера</div>
+                )}
+            </div>
 
+            {/* Описание фильма */}
+            <div className="content">
+                <h1 className="title">{movie.title}</h1>
+                <p className="description">
+                    {movie.plot || 'Увлекательные приключения самого известного сыщика всех времен'}
+                </p>
+
+                {/* Блок с мета-данными */}
+                <div className="meta">
+                    <span>{movie.relaseYear}</span>
+                    <span>★ {movie.tmdbRating?.toFixed(1) || '6.0'}</span>
+                    <span>{movie.genres?.join(', ')}</span>
                 </div>
             </div>
         </div>
     )
 }
+export default RandomMovie;

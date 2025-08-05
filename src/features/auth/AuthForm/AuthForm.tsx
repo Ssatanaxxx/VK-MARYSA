@@ -1,7 +1,7 @@
+'use client'
 import { useState } from "react";
-import { LoginForm } from "../LoginForm";
+// import { LoginForm } from "../LoginForm";
 import { RegisterForm } from "../RegisterForm";
-
 import "./AuthForm.css";
 
 export const AuthForm = () => {
@@ -18,7 +18,7 @@ export const AuthForm = () => {
             <p className="auth-form__title">
                 {authType === "register" ? "Регистрация" : "Авторизация"}
             </p>
-            {authType === "register" ? <RegisterForm /> : <LoginForm />}
+            {/* {authType === "register" ? <RegisterForm /> : <LoginForm />} */}
             <div className="auth-form__info">
                 <span>
                     {authType === "register" ? "Уже есть аккаунт?" : "Ещё нет аккаунта?"}
