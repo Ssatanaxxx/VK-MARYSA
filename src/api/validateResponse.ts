@@ -1,6 +1,11 @@
-export async function validateResponse(response: Response): Promise<Response> {
+export async function validateResponse(response: Response): Promise<void> {
   if (!response.ok) {
-    throw new Error(await response.text());
+    const errorText = await response.text();
+    try {
+      const errorJson = JSON.parse(errorText);
+      throw new Error(errorJson.message || "Request failed");
+    } catch {
+      throw new Error(errorText || "Unknown error");
+    }
   }
-  return response;
 }

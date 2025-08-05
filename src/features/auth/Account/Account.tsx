@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { fethMe } from "../../../api/User"
+import { fethMe } from "../../../api/UserSchema"
 import { Loader } from "../Loader"
 import { AuthForm } from "../AuthForm/AuthForm"
 

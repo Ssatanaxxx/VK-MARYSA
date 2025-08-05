@@ -7,7 +7,16 @@
     padding: 0;
 }
 
+.header__list-item {
+    text-decoration: none;
+}
+
+.header__logo {
+    text-decoration: none;
+}
+
 .item__text {
+    text-decoration: none;
     opacity: 1;
     color: #FFFFFF;
 }
@@ -28,4 +37,37 @@
     opacity: 1;
     border-radius: 8px;
     padding: 16px;
+}
+
+/* Navbar.module.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1a1a1a;
+}
+
+.logo-link {
+  margin-right: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #e50914;
+}
+
+.nav-link.active {
+  color: #e50914;
+  border-bottom: 2px solid #e50914;
 }
