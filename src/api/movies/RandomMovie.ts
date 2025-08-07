@@ -1,10 +1,10 @@
 import { validateResponse } from "../validateResponse";
 import { RandomMovie, RandomMovieSchema } from "./schemas";
 
-const BASE_URL = "https://cinemaguide.skillbox.cc/api/v1";
+const BASE_URL = "https://cinemaguide.skillbox.cc/movie/random";
 
 export async function fetchRandomMovie(): Promise<RandomMovie> {
-  const response = await fetch(`${BASE_URL}/movies/random`, {
+  const response = await fetch(`${BASE_URL}/movies/cinemaguide`, {
     headers: {"Accept": "application/json"}});
   await validateResponse(response);
   const data = await response.json();

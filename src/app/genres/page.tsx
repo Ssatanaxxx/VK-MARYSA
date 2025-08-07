@@ -1,15 +1,21 @@
-import { Navigation } from "@/components/Navigation/Navigation"
-import Image from "next/image"
+import Genres from "@/components/Genres/Genres"
+import { Footer } from "@/layout/Footer/Footer"
+import { Header } from "@/layout/Header/Header"
 export default function GenresPage() {
     return (
         <>
-            <Navigation />
-            <main>
-                <h1>Жанры фильмов</h1>
-                <ul>
-                    <Image src={""} alt={""} />
-                </ul>
-            </main>
+    <div className="">
+      <div className="container">
+        <Header />
+      </div>
+      <div className="container">
+        <Genres/>
+      </div>
+      <div className="container">
+        <Footer />
+      </div>
+    </div>
         </>
     )
 }
+

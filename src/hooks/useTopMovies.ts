@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const fetchTopMovies = async (): Promise<Movie[]> => {
   const response = await fetch(
-    "https://cinemaguide.skillbox.cc/api/v1/movies/top?limit=10",
+    "https://cinemaguide.skillbox.cc/movie/top10",
     { next: { revalidate: 60 * 60 } }
   );
   if (!response.ok) {
