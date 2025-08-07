@@ -1,4 +1,4 @@
-import { fetchRandomMovie } from "@/api/movies/randomMovie";
+import { fetchRandomMovie } from "@/api/movies/RandomMovie";
 import { useQuery } from "@tanstack/react-query";
 
 export const useRandomMovie = () => {

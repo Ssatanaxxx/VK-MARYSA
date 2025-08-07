@@ -4,14 +4,16 @@ import { useQuery } from "@tanstack/react-query";
 const BASE_URL = "https://cinemaguide.skillbox.cc/movie/genres";
 
 export async function fetchGenresMovie(): Promise<Movie[]> {
-  const response = await fetch(`${BASE_URL}`, {
-    next: { revalidate: 60 * 60 },
-  });
+  const response = await fetch(`${BASE_URL}`);
+  
   if (!response.ok) {
-    throw new Error("Ошибка загрузки жанра фильмов");
+    throw new Error("Ошибка загрузки жанров фильмов");
   }
-  const data = response.json();
-  return data.sort((a: Movie, b: Movie) => b.genres !== a.genres);
+  
+  const data = await response.json();
+  return data.sort((a: Movie, b: Movie) => 
+    a.genres[0]?.localeCompare(b.genres[0] ?? 0)
+  );
 }
 
 export const useGenres = () => {
@@ -19,13 +21,8 @@ export const useGenres = () => {
     queryKey: ['movie-genres'],
     queryFn: fetchGenresMovie,
     staleTime: 60 * 60 * 1000,
-    onError: (error) => {
-      console.error('Ошибка при загрузке жанров:', error)
-      // Можно добавить отправку ошибки в Sentry/LogRocket
-    },
     select: (data) => {
-      // Дополнительная обработка данных при необходимости
-      return data.sort((a, b) => a.name.localeCompare(b.name))
+      return data.sort((a, b) => a.title.localeCompare(b.title))
     }
   })
-};
+}

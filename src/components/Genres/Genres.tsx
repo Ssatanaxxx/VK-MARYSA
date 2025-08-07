@@ -1,4 +1,4 @@
-import { useGenresMovie } from "@/api/movies/GenreMovie"
+import { useGenresMovie } from "@/hooks/useGenresMovie"
 import Link from "next/link"
 import Image from 'next/image'
 
