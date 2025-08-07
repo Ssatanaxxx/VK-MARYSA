@@ -1,12 +1,10 @@
-'use client'
-import Link from 'next/link'
+import { useGenresMovie } from "@/api/movies/GenreMovie"
+import Link from "next/link"
 import Image from 'next/image'
-import { useTopMovie } from '@/hooks/useTopMovies'
-// import { Movie } from '@/types/movie'
-import "./TopMovie.css"
 
-const TopMoviesList = () => {
-    const { data: movies, isLoading, error } = useTopMovie()
+
+export const Genres = () => {
+    const { data: movies, isLoading, error } = useGenresMovie()
 
     if (isLoading) return <MovieListSkeleton />
 
@@ -18,7 +16,7 @@ const TopMoviesList = () => {
     )
 
     return (
-        <section className="top-movies">
+        <div className="container">
             <h1 className="top-movies__title">Топ 10 фильмов</h1>
             <div className="movies-grid">
                 {movies?.map((movie, index) => (
@@ -39,7 +37,7 @@ const TopMoviesList = () => {
                     </Link>
                 ))}
             </div>
-        </section>
+        </div>
     )
 }
 
@@ -55,4 +53,4 @@ const MovieListSkeleton = () => (
     </div>
 )
 
-export default TopMoviesList
+export default Genres

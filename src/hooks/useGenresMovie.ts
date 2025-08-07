@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useRandomMovie = () => {
   return useQuery({
-    queryKey: ["randomMovie"],
+    queryKey: ["genreMovie"],
     queryFn: fetchRandomMovie,
     staleTime: 1000 * 60 * 5,
   });
