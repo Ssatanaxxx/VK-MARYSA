@@ -1,9 +1,20 @@
-import HomeContent from "@/components/HomeContent/HomeContent";
+import RandomMovie from "@/components/RandomMovie/RandomMovie";
+import TopMoviesList from "@/components/TopTenMovies/TopTenMovies";
 import "./layout.css";
+
 export default function Home() {
   return (
-    <div className="">
-      <HomeContent />
-    </div>
+    <>
+      <section className="randoMovie">
+        <div className="container">
+          <RandomMovie />
+        </div>
+      </section>
+      <section className="topMovie">
+        <div className="container">
+          <TopMoviesList />
+        </div>
+      </section>
+    </>
   );
 }

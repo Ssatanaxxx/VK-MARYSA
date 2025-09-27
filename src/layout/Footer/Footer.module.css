@@ -1,0 +1,35 @@
+.footer {
+  padding-top: 120px;
+}
+
+.footer__content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 80px;
+  padding: 40px 0;
+}
+
+.footer__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 24px;
+  min-height: 40px;
+}
+
+.footer__item {
+  display: block;
+
+}
+
+.footer__link {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  fill: none;
+  line-height: 0;
+}

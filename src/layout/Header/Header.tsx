@@ -1,26 +1,24 @@
-import { Logo } from "@/components/Logo/Logo"
-import "./Header.css"
-import Link from "next/link" //есть второй вариант с использованием useRouter, но мне кажется что этот вариант более предпочтительнее
-import { Navigation } from "@/components/Navigation/Navigation"
-import { AuthButtons } from "@/components/utilit/Button"
-import RandomMovie from "../Hero/RandomMovie"
-import TopMoviesList from "@/components/TopMovie/TopMovie"
+import { Logo } from "@/components/UI-kit/Logo/Logo";
+import style from "./Header.module.css";
+import Link from "next/link"; //есть второй вариант с использованием useRouter, но мне кажется что этот вариант более предпочтительнее
+import { Navigation } from "@/components/UI-kit/Navigation/Navigation";
+import { AuthButtons } from "@/features/AuthButtons/AuthButtons";
+
 export const Header = () => {
-    return (
-        <div className="header__container">
-            <header className="header">
-                <Link href="/" passHref className="header__btn"> <Logo /></Link>
-                <Navigation />
-                <AuthButtons />
-            </header>
-            <main className="main">
-                <section className="hero" id="hero">
-                    <RandomMovie />
-                </section>
-                <section className="top-film" id="TopFilm">
-                    <TopMoviesList />
-                </section>
-            </main>
+  return (
+    <div className={style.container}>
+      <div className={style.header}>
+        <div className={style.header__content}>
+          <Link href="/" passHref className={style.header__logo}>
+            {" "}
+            <Logo />
+          </Link>
+          <Navigation />
+          <AuthButtons />
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
+
+export default Header;

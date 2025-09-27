@@ -1,0 +1,314 @@
+.card {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  padding-top: 32px;
+  justify-content: center;
+}
+
+.poster {
+  width: 680px;
+  height: 552px;
+  border-radius: 16px;
+  position: relative;
+  background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+  flex-shrink: 0;
+  /* Чтобы не сжимался */
+}
+
+.posterImage {
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.noPoster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-style: italic;
+}
+
+.tmdRating {
+  padding: 4px 12px;
+  color: #fff;
+  background-color: #308e21;
+  border-radius: 16px;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+  max-width: 600px;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.description {
+  margin: 0;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-size: 15px;
+}
+
+/* Мета-данные */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* Кнопки */
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.trailerButton {
+  width: 183px;
+  display: block;
+  text-align: center;
+  background: #67a5eb;
+  color: white;
+  border: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 12px;
+  border-radius: 28px;
+}
+
+.trailerButton:hover {
+  background: hsl(196, 86%, 69%);
+}
+
+.detailsButton {
+  width: 183px;
+  display: block;
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 12px;
+  opacity: 1;
+  border-radius: 28px;
+  border-width: 1px;
+  background-color: #393b3c;
+}
+
+.detailsButton:hover {
+  border-color: #e50914;
+  color: #e50914;
+}
+
+.favoriteButton {
+  text-align: center;
+  font-size: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 12px;
+  opacity: 1;
+  border-radius: 28px;
+  border-width: 1px;
+  border: 1px solid var(--content-placeholder, rgba(0, 0, 0, 0.4));
+  background: rgba(51, 51, 51, 1);
+}
+
+.movieCard__content {
+  display: grid;
+  grid-template-columns: minmax(600px, 1fr) 1fr;
+  align-items: center;
+  gap: 50px;
+  padding-top: 32px;
+}
+
+.movieCard__img {
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 1099px) {
+  .movieCard__content {
+    grid-template-columns: minmax(300px, 1fr) 1fr;
+  }
+}
+
+@media (max-width: 999px) {
+  .movieCard__content {
+    display: flex;
+    flex-flow: column-reverse;
+    width: 100%;
+  }
+}
+
+.movieCard__main {
+  display: flex;
+  flex-flow: column;
+  gap: 60px;
+  width: 600px;
+}
+
+.movieCard__about {
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+}
+
+.movieCard__heading {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 16px;
+  color: white;
+}
+
+.ratingContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background-color: #308e21;
+  color: white;
+}
+
+.tmdbRating {
+  display: flex;
+  align-items: center;
+}
+
+.movieCard__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  color: white;
+  margin-bottom: 60px;
+  margin-top: 16px;
+}
+
+.movieCard__description {
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--content-secondary, rgba(255, 255, 255, 0.7));
+  margin: 0;
+  margin-top: 16px;
+  margin-right: 20px;
+}
+
+.movieCard__controls {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 499px) {
+  .movieCard__controls {
+    display: grid;
+    grid-template: 1fr / repeat(3, minmax(50px, 1fr));
+    align-items: center;
+  }
+}
+
+.movieCard__trailerBtn,
+.movieCard__aboutBtn {
+  width: 171px;
+  height: 56px;
+  gap: 12px;
+  border-radius: 28px;
+  background-color: #67a5eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.movieCard__aboutBtn {
+  border: 1px solid var(--content-placeholder, rgba(0, 0, 0, 0.4));
+  background-color: #393b3c;
+}
+
+.movieCard__favoriteBtn {
+  width: 68px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #333333;
+  border: 1px solid var(--content-placeholder, rgba(0, 0, 0, 0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+@media (max-width: 499px) {
+  .movieCard__favoriteBtn,
+  .movieCard__refreshBtn {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 499px) {
+  .movieCard__trailerBtn {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 429px) {
+  .movieCard__aboutBtn {
+    grid-column: span 3;
+  }
+}
+
+.movieCard__picture {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.movieCard {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 32px;
+}
+
+.movieCard__img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.movieCard__btns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}

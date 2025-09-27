@@ -1,10 +1,10 @@
-import { fetchGenresMovie } from "@/api/movies/GenreMovie";
+import { fetchRandomMovie } from "@/api/movies/GenreMovie/GenreMovie";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGenresMovie = () => {
+export const useGnres = () => {
   return useQuery({
-    queryKey: ['movie-genres'],
-    queryFn: fetchGenresMovie,
+    queryKey: ["genreMovie"],
+    queryFn: fetchRandomMovie,
     staleTime: 1000 * 60 * 5,
   });
 };

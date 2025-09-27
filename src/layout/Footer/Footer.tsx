@@ -1,37 +1,48 @@
-import "./Footer.css"
-import Image from "next/image"
-import IconVK from "../../../public/vk.svg"
-import IconTelegramm from "../../../public/telegram.svg"
-import IconOk from "../../../public/ok.svg"
-import IconYoutube from "../../../public/youtube.svg"
-import Link from "next/link"
+import styles from "./Footer.module.css";
 
 export const Footer = () => {
-    return (
-        <div className="footer__container">
-            <ul className="footer__list">
-                <li className="footer__list-item">
-                    <Link href="#" passHref className="header__btn">
-                        <Image className="footer__item-icon" title="link" src={IconVK} width={36} height={36} alt="Кликабельная ссылка на социальную сеть"></Image>
-                    </Link>
-                </li>
-                <li className="footer__list-item">
-                    <Link href="#" passHref className="header__btn">
-                        <Image className="footer__item-icon" title="link" src={IconYoutube} width={36} height={36} alt="Кликабельная ссылка на социальную сеть"></Image>
-                    </Link>
-                </li>
-                <li className="footer__list-item">
-                    <Link href="#" passHref className="header__btn">
-                        <Image className="footer__item-icon" title="link" src={IconOk} width={36} height={36} alt="Кликабельная ссылка на социальную сеть"></Image>
-                    </Link>
-                </li>
-                <li className="footer__list-item">
-                    <Link href="#" passHref className="header__btn">
-                        <Image className="footer__item-icon" title="link" src={IconTelegramm} width={36} height={36} alt="Кликабельная ссылка на социальную сеть"></Image>
-                    </Link>
-                </li>
+  return (
+    <>
+      <footer className={styles.footer}>
+        <div className="container">
+          <div className={styles.footer__content}>
+            <ul
+              className={`${styles.footer__list} ${styles.socials} list-reset`}
+            >
+              <li className={styles.footer__item}>
+                <a className={styles.footer__link} href="#">
+                  <svg width="36" height="36" aria-hidden="true">
+                    <use href="/sprites.svg#icon-vk"></use>
+                  </svg>
+                </a>
+              </li>
+              <li className={styles.footer__item}>
+                <a className={styles.footer__link} href="#">
+                  <svg width="36" height="36" aria-hidden="true">
+                    <use href="/sprites.svg#icon-youtube"></use>
+                  </svg>
+                </a>
+              </li>
+              <li className={styles.footer__item}>
+                <a className={styles.footer__link} href="#">
+                  <svg width="36" height="36" aria-hidden="true">
+                    <use href="/sprites.svg#icon-ok"></use>
+                  </svg>
+                </a>
+              </li>
+              <li className={styles.footer__item}>
+                <a className={styles.footer__link} href="#">
+                  <svg width="36" height="36" aria-hidden="true">
+                    <use href="/sprites.svg#icon-telegram"></use>
+                  </svg>
+                </a>
+              </li>
             </ul>
-
+          </div>
         </div>
-    )
-}
+      </footer>
+    </>
+  );
+};
+
+export default Footer;

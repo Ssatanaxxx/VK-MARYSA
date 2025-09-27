@@ -1,0 +1,48 @@
+.dropdown {
+  position: absolute;
+  left: 750px;
+  top: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 559px;
+  background: #393b3c;
+  list-style-type: none;
+  order: 0;
+}
+
+.dropdown__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+}
+
+.dropdown__link {
+  color: aliceblue;
+}
+
+.dropdown__card {
+  display: grid;
+  grid-template: 20px 24px / 40px 1fr;
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+.dropdown__picture {
+  grid-row: span 2;
+}
+
+.dropdown__heading {
+  display: flex;
+  gap: 10px;
+}
+
+.dropdown__rating {
+  display: inline-block;
+}
+
+.dropdown__title {
+  margin: 0;
+}

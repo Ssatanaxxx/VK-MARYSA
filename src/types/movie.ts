@@ -1,18 +1,28 @@
-export interface Movie {
+export interface IMovie {
   id: number;
   title: string;
+  originalTitle: string;
+  language: string;
+  releaseYear: number;
+  releaseDate: string;
+  genres: [string];
+  plot: string;
+  runtime: number;
+  budget: string;
+  revenue: string;
+  homepage: string;
+  status: string;
   posterUrl: string;
+  backdropUrl: string;
+  trailerUrl: string;
+  trailerYoutubeId: string;
   tmdbRating: number;
-  year: number;
-  genres: string[];
-  plot?: string;
-  runtime?: number;
-  director?: string;
+  search: string;
+  keywords: [string];
+  countriesOfOrigin: [string];
+  languages: [string];
+  cast: [string];
+  director: string;
+  production: string;
+  awardsSummary: string;
 }
-
-// Тип для ответа API
-export interface ApiResponse<T> {
-  data: T;
-  error?: string;
-}
-
