@@ -14,7 +14,6 @@ export const TopTenMovieSchema = z.object({
 
 export type TopTenMovie = z.infer<typeof TopTenMovieSchema>;
 
-// Тип для ответа API
 export interface ApiResponse<T> {
   data: T;
   error?: string;

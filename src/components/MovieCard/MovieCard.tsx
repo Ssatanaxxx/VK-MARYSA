@@ -1,7 +1,7 @@
 "use client";
 import { FC, useState } from "react";
 import styles from "./MovieCard.module.css";
-import { IMovie } from "../../types/Movie";
+import { IMovie } from "@/api/IMovies/IMovie";
 import Image from "next/image";
 import minutesToString from "../../utils/minutesToString";
 

@@ -4,37 +4,42 @@ import Image from "next/image";
 import IconSearch from "../../../../public/search-icon.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
-import { IMovie } from "../../../types/Movie";
-import Api from "../../../api/api";
+import { ChangeEvent, useState } from "react";
+import { useMovies } from "@/hooks/useIMovie";
 import SearchDropdown from "@/components/UI-kit/SearchDropdown/SearchDropdown";
 
 export const Navigation = () => {
-  const [data, setData] = useState<IMovie[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const pathName = usePathname();
   const [focusState, setFocusState] = useState(false);
+
+  const { data: searchResults, isLoading: isSearching } = useMovies(
+    {
+      count: "5",
+      title: searchQuery,
+    },
+    {
+      enabled: searchQuery.length > 2,
+      staleTime: 1000 * 60,
+    }
+  );
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
-  const sendSearchQuery = useCallback(
-    async (searchQuery: string): Promise<void> => {
-      try {
-        const data = await Api.getMovies("5", searchQuery);
-        setData(data);
-      } catch (error) {
-        console.error("Search error:", error);
-        setData([]);
-      }
-    },
-    []
-  );
+  const handleFocus = () => {
+    setFocusState(true);
+  };
 
-  useEffect(() => {
-    sendSearchQuery(searchQuery);
-  }, [searchQuery, sendSearchQuery]);
+  const handleBlur = () => {
+    // Добавляем задержку чтобы клик по дропдауну успел сработать
+    setTimeout(() => {
+      setFocusState(false);
+      setSearchQuery("");
+    }, 200);
+  };
+
   return (
     <>
       <ul className={`${styles.header__list} list-reset`}>
@@ -72,14 +77,16 @@ export const Navigation = () => {
               type="search"
               placeholder="Поиск"
               value={searchQuery}
-              onFocus={() => setFocusState(true)}
-              onBlur={() => {
-                setFocusState(false);
-                setSearchQuery("");
-              }}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
               onChange={handleSearch}
-            ></input>
-            {focusState && <SearchDropdown movies={data} />}
+            />
+            {focusState && searchQuery.length > 0 && (
+              <SearchDropdown
+                movies={searchResults || []}
+                isLoading={isSearching}
+              />
+            )}
           </div>
         </li>
       </ul>

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { IMovie } from "../../types/Movie";
-import Api from "../../api/api";
+"use client";
+import { useMovies } from "@/hooks/useIMovie";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./MoviesList.module.css";
@@ -9,36 +8,21 @@ import Image from "next/image";
 export const MoviesList = () => {
   const params = useParams();
   const genre = params?.genre as string;
-  const [data, setData] = useState<IMovie[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const getData = async (): Promise<void> => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const data = await Api.getMovies(genre);
-        setData(data);
-      } catch (error) {
-        console.error("Ошибка загрузки фильмов:", error);
-        setError("Не удалось загрузить фильмы");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (genre) {
-      getData();
-    }
-  }, [genre]);
+  const {
+    data: movies,
+    isLoading,
+    error,
+  } = useMovies({
+    genre: genre,
+  });
 
   if (!genre) {
     return <div className={styles.error}>Жанр не указан</div>;
   }
 
   if (error) {
-    return <div className={styles.error}>{error}</div>;
+    return <div className={styles.error}>{error.message}</div>;
   }
 
   return (
@@ -46,7 +30,9 @@ export const MoviesList = () => {
       <div className="container">
         <div className={styles.movies__content}>
           <div className={styles.movies__titleContainer}>
-            <Link className={styles.movies__titleBtn} href="/genres">{"<"}</Link>
+            <Link className={styles.movies__titleBtn} href="/genres">
+              {"<"}
+            </Link>
             <h2 className={styles.movies__title}>{genre}</h2>
           </div>
 
@@ -54,8 +40,8 @@ export const MoviesList = () => {
             <div className={styles.loading}>Загрузка...</div>
           ) : (
             <ul className={`${styles.movies__list} list-reset`}>
-              {data && data.length > 0 ? (
-                data.map((movie) => (
+              {movies && movies.length > 0 ? (
+                movies.map((movie) => (
                   <li key={movie.id} className={styles.movies__item}>
                     <Link
                       href={`/movie/${movie.id}`}

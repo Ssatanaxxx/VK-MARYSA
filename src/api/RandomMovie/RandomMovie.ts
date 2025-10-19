@@ -11,5 +11,10 @@ export async function fetchRandomMovie(): Promise<RandomMovie> {
   });
   await validateResponse(response);
   const data = await response.json();
+  
+  if (data.data) {
+    return RandomMovieSchema.parse(data.data);
+  }
+  
   return RandomMovieSchema.parse(data);
 }

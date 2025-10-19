@@ -2,14 +2,21 @@ import { TopTenMovie } from "@/api/schemas/TopTenMoviesSchema";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchTopMovies = async (): Promise<TopTenMovie[]> => {
-  const response = await fetch(
-    "https://cinemaguide.skillbox.cc/movie/top10",
-  );
+  const response = await fetch("https://cinemaguide.skillbox.cc/movie/top10");
   if (!response.ok) {
     throw new Error("Ошибка загрузки топ фильмов");
   }
   const data = await response.json();
-  return data.sort((a: TopTenMovie, b: TopTenMovie) => b.tmdbRating - a.tmdbRating);
+  
+  if (data.data && Array.isArray(data.data)) {
+    return data.data.sort(
+      (a: TopTenMovie, b: TopTenMovie) => b.tmdbRating - a.tmdbRating
+    );
+  }
+  
+  return data.sort(
+    (a: TopTenMovie, b: TopTenMovie) => b.tmdbRating - a.tmdbRating
+  );
 };
 
 export const useTopMovie = () => {

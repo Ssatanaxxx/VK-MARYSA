@@ -1,22 +1,10 @@
-import { fetchRandomMovie } from "@/api/movies/GenreMovie/GenreMovie";
+import { fetchGenres } from "@/api/GenreMovie/GenreMovie";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGnres = () => {
+export const useGenres = () => {
   return useQuery({
-    queryKey: ["genreMovie"],
-    queryFn: fetchRandomMovie,
+    queryKey: ["genres"],
+    queryFn: fetchGenres,
     staleTime: 1000 * 60 * 5,
   });
 };
-
-
-// const { data: movie, isLoading } = useQuery({
-//   queryKey: ['random-movie'],
-//   queryFn: async () => {
-//     const res = await fetch(API_URL, {
-//       headers: { 'Accept': 'application/json' }
-//     });
-//     if (!res.ok) throw new Error('Failed to fetch');
-//     return res.json();
-//   }
-// });

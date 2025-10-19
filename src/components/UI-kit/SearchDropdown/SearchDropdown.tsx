@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IMovie } from "../../../types/Movie";
+import { IMovie } from "@/api/IMovies/IMovie";
 import minutesToString from "../../../utils/minutesToString";
 import styles from "./SearchDropdown.module.css";
 import Image from "next/image";

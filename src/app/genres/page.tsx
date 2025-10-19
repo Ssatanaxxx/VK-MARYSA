@@ -1,34 +1,16 @@
-"use client"
-import { useEffect, useState } from "react";
-import Api from "@/api/api";
+"use client";
+import { useGenres } from "@/hooks/useGenresMovie";
 import styles from "./layout.module.css";
 import Link from "next/link";
 
 export default function GenresPage() {
-  const [genres, setGenres] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { isLoading, error, data: genres } = useGenres();
 
-  useEffect(() => {
-    const getData = async (): Promise<void> => {
-      try {
-        setIsLoading(true);
-        const genresData = await Api.getMovieGenres();
-        setGenres(genresData);
-      } catch (err) {
-        console.error("Ошибка загрузки жанров:", err);
-        setError("Не удалось загрузить данные");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getData();
-  }, []);
-
-  if (isLoading) return <div className={styles.loading}>Загрузка жанров...</div>;
-  if (error) return <div className={styles.error}>{error}</div>;
-  if (!genres.length) return <div className={styles.empty}>Жанры не найдены</div>;
+  if (isLoading)
+    return <div className={styles.loading}>Загрузка жанров...</div>;
+  if (error) return <div className={styles.error}>{error.message}</div>;
+  if (!genres || genres.length === 0)
+    return <div className={styles.empty}>Жанры не найдены</div>;
 
   return (
     <>
