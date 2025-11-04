@@ -5,7 +5,7 @@ export const useMovieSearch = (searchQuery: string, enabled: boolean) => {
   return useQuery({
     queryKey: ["movieSearch", searchQuery],
     queryFn: () => fetchMovies({
-      count: "5",
+      limit: 5,
       title: searchQuery,
     }),
     enabled: enabled && searchQuery.length > 2,

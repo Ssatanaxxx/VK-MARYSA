@@ -14,7 +14,7 @@ export const MoviesList = () => {
     isLoading,
     error,
   } = useMovies({
-    genre: genre,
+    genres: genre,
   });
 
   if (!genre) {
