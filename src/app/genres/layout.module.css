@@ -1,44 +1,166 @@
+/* app/genres/layout.module.css */
+
+.loading,
+.error,
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.empty {
+  color: #95a5a6;
+}
+
 .genres__title {
-  margin: 64px 0;
-  font-size: 46px;
-  line-height: 56px;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: start;
+  margin-bottom: 40px;
   color: white;
 }
 
 .genres__list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(290px, 1fr));
-  gap: 64px 40px;
-  margin: 0;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
   padding: 0;
-  list-style-type: none;
+  margin: 0;
+}
+
+.genres__item {
+  list-style: none;
+  transition: transform 0.3s ease;
+}
+
+.genres__item:hover {
+  transform: translateY(-5px);
+}
+
+.genres__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
 }
 
 .genres__card {
-  border-radius: 24px;
-  min-height: 304px;
+  background: #000;
+  border-radius: 12px;
   overflow: hidden;
-}
-
-.genres__figure {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  height: 320px;
   display: flex;
-  flex-flow: column;
-  margin: 0;
+  flex-direction: column;
+  position: relative;
 }
 
-.genres__img {
-  display: block;
-  width: 100%;
+.genres__card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
 }
 
-.genres__figcaption {
+/* Псевдо-постер (заглушка) */
+.genres__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 1;
+}
+
+/* Контейнер для текста жанра */
+.genres__name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 84px;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 23px;
-  color: #fff;
-  background: black;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  padding: 0 15px;
+}
+
+/* Эффект при ховере и фокусе */
+.genres__link:hover .genres__name,
+.genres__link:focus .genres__name {
+  background: #8b008b; /* Пурпурный цвет */
+  color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .genres__list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .genres__title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .genres__card {
+    height: 250px;
+  }
+
+  .genres__name {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .genres__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .genres__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .genres__card {
+    height: 200px;
+  }
+
+  .genres__name {
+    font-size: 16px;
+  }
+}
+
+/* Вспомогательные классы */
+.list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

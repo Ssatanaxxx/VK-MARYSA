@@ -100,13 +100,14 @@ const RandomMovie = () => {
             src={
               movie.posterUrl.startsWith("http")
                 ? movie.posterUrl
-                : `https://cinemaguide.skillbox.cc/movie/random${movie.posterUrl}`
+                : `https://cinemaguide.skillbox.cc${movie.posterUrl}`
             }
             alt={`Постер ${movie.title}`}
-            fill
+            width={680}
+            height={552}
             className={styles.posterImage}
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 900px) 100vw, 680px"
+            priority
           />
         ) : (
           <div className={styles.noPoster}>Нет постера</div>

@@ -7,7 +7,6 @@ import { AuthButtons } from "@/features/AuthButtons/AuthButtons";
 export const Header = () => {
   return (
     <div className={style.container}>
-      <div className={style.header}>
         <div className={style.header__content}>
           <Link href="/" passHref className={style.header__logo}>
             {" "}
@@ -16,7 +15,6 @@ export const Header = () => {
           <Navigation />
           <AuthButtons />
         </div>
-      </div>
     </div>
   );
 };

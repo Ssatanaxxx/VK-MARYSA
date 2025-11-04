@@ -28,7 +28,6 @@ export const TopTenMovies = () => {
   return (
     <>
       <div className={styles.topMovies}>
-        <div className="container">
           <div className={styles.topMovies__content}>
             <h2 className={styles.topMovies__title}>Топ 10 фильмов</h2>
             <ol className={`${styles.topMovies__list} list-reset`}>
@@ -53,7 +52,6 @@ export const TopTenMovies = () => {
                 </li>
               ))}
             </ol>
-          </div>
         </div>
       </div>
     </>

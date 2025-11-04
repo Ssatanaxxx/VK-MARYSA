@@ -1,99 +1,53 @@
-.header__list {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header__list-item {
-  text-decoration: none;
-  position: relative;
-  font-size: 24px;
-  line-height: 32px;
-  color: white;
-}
-
-.header__logo {
-  text-decoration: none;
-}
-
-.item__text {
-  text-decoration: none;
-  opacity: 1;
-  color: #ffffff;
-}
-
-.item__search {
-  width: 655px;
-  background: none;
-  border: none;
-  opacity: 1;
-  color: #ffffff;
-}
-
-.item__search-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--background-secondary, #393b3c);
-  opacity: 1;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #1a1a1a;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
 .navLink {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
   background: none;
   border: none;
-  transition: border 0.3s ease-out;
-  font-size: 24px;
-  line-height: 32px;
 }
 
 .navLink:hover {
-  border-bottom: 1.5px solid #DC5DFC;
+  color: #dc5dfc;
 }
 
-.userInfo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.navLinkActive {
+  color: #dc5dfc;
+  border-bottom-color: #dc5dfc;
 }
 
-.userName {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
+@media (max-width: 1024px) {
+  .navLink {
+    font-size: 16px;
+  }
 }
 
-.logoutButton {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s ease;
+@media (max-width: 767px) {
+  .navLink {
+    font-size: 15px;
+  }
 }
 
-.logoutButton:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+@media (max-width: 640px) {
+  .navLink {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navLink {
+    font-size: 13px;
+    padding: 4px 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .navLink {
+    font-size: 12px;
+  }
 }

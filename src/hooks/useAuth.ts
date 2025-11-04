@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
-import { loginUser, registerUser, fetchUser, logoutUser } from "@/api/auth";
-import { User, RegisterFormData } from "@/api/schemas/AuthSchema";
+"use client";
+import { fetchUser, loginUser, logoutUser, registerUser } from "@/api/Auth/auth";
+import {
+  LoginFormData,
+  RegisterFormData,
+  User,
+} from "@/api/schemas/AuthSchema";
+import { useEffect, useState } from "react";
 
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -21,9 +26,9 @@ export const useAuth = () => {
     checkAuth();
   }, []);
 
-  const login = async (email: string, password: string) => {
+  const login = async (loginData: LoginFormData) => {
     try {
-      await loginUser(email, password);
+      await loginUser(loginData.email, loginData.password);
       const userData = await fetchUser();
       setUser(userData);
       return { success: true };
@@ -51,7 +56,7 @@ export const useAuth = () => {
     try {
       await logoutUser();
       setUser(null);
-      return { success: true, message: "Logout succesful" };
+      return { success: true, message: "Logout successful" };
     } catch (error) {
       setUser(null);
       return {
@@ -67,6 +72,6 @@ export const useAuth = () => {
     login,
     register,
     logout,
-    isAuthenticated: !!user
+    isAuthenticated: !!user,
   };
 };

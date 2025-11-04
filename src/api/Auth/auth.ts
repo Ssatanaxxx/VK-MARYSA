@@ -4,8 +4,8 @@ import {
   type LoginResponse,
   type User,
   type RegisterFormData,
-} from "./schemas/AuthSchema";
-import { validateResponse } from "./validateResponse";
+} from "../schemas/AuthSchema";
+import { validateResponse } from "../validateResponse";
 
 export async function loginUser(
   email: string,
@@ -55,7 +55,7 @@ export async function registerUser(data: RegisterFormData): Promise<void> {
 }
 
 export async function fetchUser(): Promise<User> {
-  const response = await fetch("https://cinemaguide.skillbox.cc/user", {
+  const response = await fetch("https://cinemaguide.skillbox.cc/profile", {
     method: "GET",
     credentials: "include",
     headers: {

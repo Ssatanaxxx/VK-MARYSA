@@ -1,0 +1,85 @@
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.movieSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 200px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.skeletonPoster {
+  display: block;
+  width: 100%;
+  height: 300px;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+.skeletonTitle {
+  display: block;
+  width: 80%;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.skeletonRating {
+  display: block;
+  width: 40%;
+  height: 16px;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.movieSkeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .movieSkeleton {
+    max-width: 150px;
+  }
+
+  .skeletonPoster {
+    height: 220px;
+  }
+}

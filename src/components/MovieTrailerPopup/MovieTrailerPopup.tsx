@@ -1,5 +1,6 @@
 import { FC } from "react";
 import CloseIcon from "../UI-kit/CloseIcon/CloseIcon";
+import styles from "./MovieTrailerPopup.module.css";
 
 interface MovieTrailerPopupProps {
   isOpen: boolean;
@@ -18,13 +19,17 @@ const MovieTrailerPopup: FC<MovieTrailerPopupProps> = ({
 
   return (
     <>
-      <div className="popup">
-        <div className="popup__content">
-          <button className="popup__close" type="button" onClick={onClose}>
+      <div className={styles.popup}>
+        <div className={styles.popup__content}>
+          <button
+            className={styles.popup__close}
+            type="button"
+            onClick={onClose}
+          >
             <CloseIcon />
           </button>
           <video
-            className="popup__main"
+            className={styles.popup__main}
             src={trailerUrl}
             controls
             autoPlay

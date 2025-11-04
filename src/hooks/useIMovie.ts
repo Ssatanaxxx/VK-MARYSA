@@ -1,21 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchMovies, fetchMovie, fetchMovieGenres } from "@/api/IMovies/IMovie";
+import {
+  fetchMovies,
+  fetchMovie,
+  fetchMovieGenres,
+} from "@/api/IMovies/IMovie";
 import { Movies, IMovie, Genres } from "@/api/schemas/Movies";
 
-// Хук для получения фильмов с фильтрацией
-export const useMovies = (params?: {
-  count?: string;
+interface MoviesParams {
+  limit?: number;
+  offset?: number;
   title?: string;
-  genre?: string;
-}) => {
+  genres?: string;
+  year?: number;
+}
+
+export const useMovies = (
+  params?: MoviesParams,
+  options?: { enabled?: boolean; staleTime?: number }
+) => {
   return useQuery<Movies>({
     queryKey: ["movies", params],
     queryFn: () => fetchMovies(params),
     staleTime: 1000 * 60 * 5,
+    ...options,
   });
 };
 
-// Хук для получения конкретного фильма
 export const useMovie = (movieId: number) => {
   return useQuery<IMovie>({
     queryKey: ["movie", movieId],
@@ -25,7 +35,6 @@ export const useMovie = (movieId: number) => {
   });
 };
 
-// Хук для получения списка жанров
 export const useMovieGenres = () => {
   return useQuery<Genres>({
     queryKey: ["movie-genres"],

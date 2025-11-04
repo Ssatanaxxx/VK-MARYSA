@@ -1,16 +1,39 @@
 import Link from "next/link";
-import { IMovie } from "@/api/IMovies/IMovie";
+import { IMovie } from "@/api/schemas/Movies";
 import minutesToString from "../../../utils/minutesToString";
 import styles from "./SearchDropdown.module.css";
 import Image from "next/image";
-const SearchDropdown = ({ movies }: { movies: IMovie[] }) => {
+
+interface SearchDropdownProps {
+  movies: IMovie[];
+  isLoading?: boolean;
+  onItemClick?: () => void;
+}
+
+const SearchDropdown = ({
+  movies,
+  isLoading,
+  onItemClick,
+}: SearchDropdownProps) => {
+  if (isLoading) {
+    return (
+      <div className={styles.dropdown}>
+        <div className={styles.dropdown__loading}>Загрузка...</div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.dropdown}>
       {movies && movies.length > 0 ? (
         <ul className={`${styles.dropdown__list} list-reset`}>
           {movies.map((movie) => (
             <li key={movie.id}>
-              <Link className={styles.dropdown__link} href={`/movie/${movie.id}`}>
+              <Link
+                className={styles.dropdown__link}
+                href={`/movie/${movie.id}`}
+                onClick={onItemClick}
+              >
                 <div className={styles.dropdown__card}>
                   <picture className={styles.dropdown__picture}>
                     <Image
@@ -43,9 +66,10 @@ const SearchDropdown = ({ movies }: { movies: IMovie[] }) => {
           ))}
         </ul>
       ) : (
-        <div>No results found</div>
+        <div className={styles.dropdown__empty}>Ничего не найдено</div>
       )}
     </div>
   );
 };
+
 export default SearchDropdown;

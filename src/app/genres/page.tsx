@@ -2,12 +2,12 @@
 import { useGenres } from "@/hooks/useGenresMovie";
 import styles from "./layout.module.css";
 import Link from "next/link";
+import MovieSkeleton from "@/components/UI-kit/MovieSkeleton/MovieSkeleton";
 
 export default function GenresPage() {
   const { isLoading, error, data: genres } = useGenres();
 
-  if (isLoading)
-    return <div className={styles.loading}>Загрузка жанров...</div>;
+  if (isLoading) return <MovieSkeleton />;
   if (error) return <div className={styles.error}>{error.message}</div>;
   if (!genres || genres.length === 0)
     return <div className={styles.empty}>Жанры не найдены</div>;

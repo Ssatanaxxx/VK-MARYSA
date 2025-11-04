@@ -1,314 +1,359 @@
-.card {
+/* Основная карточка фильма - FLEXBOX */
+.movieCard {
   display: flex;
-  align-items: center;
-  overflow: hidden;
-  margin: 0 auto;
+  gap: 60px;
+  flex-direction: row-reverse;
+  align-items: flex-start;
   color: white;
-  display: flex;
-  padding-top: 32px;
-  justify-content: center;
+  padding: 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.poster {
-  width: 680px;
-  height: 552px;
-  border-radius: 16px;
-  position: relative;
-  background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
-  flex-shrink: 0;
-  /* Чтобы не сжимался */
-}
-
-.posterImage {
-  border-radius: 16px;
-  object-fit: cover;
-}
-
-.noPoster {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-style: italic;
-}
-
-.tmdRating {
-  padding: 4px 12px;
-  color: #fff;
-  background-color: #308e21;
-  border-radius: 16px;
-  font-weight: 700;
-  font-style: Bold;
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.content {
+/* Контент - СЛЕВА */
+.movieCard__info {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  flex-grow: 1;
-  max-width: 600px;
+  gap: 24px;
+  padding: 20px 0;
+  flex: 1; /* Занимает всё доступное пространство */
 }
 
-.title {
-  margin: 0;
-  padding: 0;
-  font-weight: 700;
-  font-style: Bold;
-  font-size: 48px;
-  line-height: 56px;
-}
-
-.description {
-  margin: 0;
-  line-height: 1.6;
-  color: #e0e0e0;
-  font-size: 15px;
-}
-
-/* Мета-данные */
-.meta {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: #aaa;
-  font-size: 14px;
-}
-
-/* Кнопки */
-.buttons {
-  display: flex;
-  gap: 12px;
-}
-
-.button {
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 14px;
-}
-
-.trailerButton {
-  width: 183px;
-  display: block;
-  text-align: center;
-  background: #67a5eb;
-  color: white;
-  border: none;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  gap: 12px;
-  border-radius: 28px;
-}
-
-.trailerButton:hover {
-  background: hsl(196, 86%, 69%);
-}
-
-.detailsButton {
-  width: 183px;
-  display: block;
-  text-align: center;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  gap: 12px;
-  opacity: 1;
-  border-radius: 28px;
-  border-width: 1px;
-  background-color: #393b3c;
-}
-
-.detailsButton:hover {
-  border-color: #e50914;
-  color: #e50914;
-}
-
-.favoriteButton {
-  text-align: center;
-  font-size: 20px;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  gap: 12px;
-  opacity: 1;
-  border-radius: 28px;
-  border-width: 1px;
-  border: 1px solid var(--content-placeholder, rgba(0, 0, 0, 0.4));
-  background: rgba(51, 51, 51, 1);
-}
-
-.movieCard__content {
-  display: grid;
-  grid-template-columns: minmax(600px, 1fr) 1fr;
-  align-items: center;
-  gap: 50px;
-  padding-top: 32px;
+/* Постер - СПРАВА */
+.movieCard__poster {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+  aspect-ratio: 680 / 552;
+  flex-shrink: 0; /* Чтобы не сжимался */
+  width: 680px; /* Фиксированная ширина */
+  max-width: 100%;
 }
 
 .movieCard__img {
-  object-fit: cover;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
-@media (max-width: 1099px) {
-  .movieCard__content {
-    grid-template-columns: minmax(300px, 1fr) 1fr;
-  }
-}
-
-@media (max-width: 999px) {
-  .movieCard__content {
-    display: flex;
-    flex-flow: column-reverse;
-    width: 100%;
-  }
-}
-
-.movieCard__main {
-  display: flex;
-  flex-flow: column;
-  gap: 60px;
-  width: 600px;
-}
-
-.movieCard__about {
-  display: flex;
-  flex-flow: column;
-  gap: 16px;
-}
-
+/* Заголовок с мета-данными */
 .movieCard__heading {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
-  color: white;
+  font-size: 16px;
 }
 
 .ratingContent {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 4px 12px;
-  border-radius: 16px;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
   background-color: #308e21;
   color: white;
+  font-weight: 700;
+  font-size: 16px;
 }
 
-.tmdbRating {
-  display: flex;
-  align-items: center;
+.movieCard__year,
+.movieCard__genre,
+.movieCard__duration {
+  color: #aaa;
+  font-size: 16px;
 }
 
+/* Название фильма */
 .movieCard__title {
   margin: 0;
   font-weight: 700;
   font-size: 48px;
-  line-height: 56px;
+  line-height: 1.1;
   color: white;
-  margin-bottom: 60px;
-  margin-top: 16px;
 }
 
+/* Описание */
 .movieCard__description {
-  font-size: 24px;
-  line-height: 32px;
-  color: var(--content-secondary, rgba(255, 255, 255, 0.7));
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
-  margin-top: 16px;
-  margin-right: 20px;
 }
 
-.movieCard__controls {
+/* Кнопки */
+.movieCard__btns {
   display: flex;
-  flex-flow: row wrap;
   align-items: center;
   gap: 16px;
+  margin-top: auto;
 }
 
-@media (max-width: 499px) {
-  .movieCard__controls {
-    display: grid;
-    grid-template: 1fr / repeat(3, minmax(50px, 1fr));
-    align-items: center;
-  }
-}
-
-.movieCard__trailerBtn,
-.movieCard__aboutBtn {
-  width: 171px;
-  height: 56px;
-  gap: 12px;
+.movieCard__trailerBtn {
+  padding: 16px 32px;
   border-radius: 28px;
   background-color: #67a5eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: #ffffff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 171px;
+  text-align: center;
 }
 
-.movieCard__aboutBtn {
-  border: 1px solid var(--content-placeholder, rgba(0, 0, 0, 0.4));
-  background-color: #393b3c;
+.movieCard__trailerBtn:hover:not(:disabled) {
+  background-color: #5590d6;
+  transform: translateY(-2px);
+}
+
+.movieCard__trailerBtn:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .movieCard__favoriteBtn {
   width: 68px;
   height: 56px;
   border-radius: 28px;
-  background-color: #333333;
-  border: 1px solid var(--content-placeholder, rgba(0, 0, 0, 0.4));
+  background-color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 499px) {
-  .movieCard__favoriteBtn,
-  .movieCard__refreshBtn {
-    justify-self: center;
+.movieCard__favoriteBtn:hover:not(:disabled) {
+  background-color: #444;
+  border-color: #67a5eb;
+  transform: translateY(-2px);
+}
+
+.movieCard__favoriteBtnActive {
+  background-color: #e50914;
+  border-color: #e50914;
+}
+
+.movieCard__favoriteBtnLoading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.loadingSpinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-@media (max-width: 499px) {
+/* ===== АДАПТИВ FLEXBOX ===== */
+/* 1140px - Большие десктопы */
+@media (max-width: 1140px) {
+  .movieCard {
+    gap: 50px;
+    padding: 40px 20px;
+  }
+
+  .movieCard__poster {
+    width: 600px;
+  }
+
+  .movieCard__title {
+    font-size: 42px;
+  }
+
+  .movieCard__description {
+    font-size: 17px;
+  }
+}
+
+/* 1024px - Десктопы */
+@media (max-width: 1024px) {
+  .movieCard {
+    gap: 40px;
+  }
+
+  .movieCard__poster {
+    width: 500px;
+  }
+
+  .movieCard__title {
+    font-size: 36px;
+  }
+
+  .movieCard__description {
+    font-size: 16px;
+  }
+
+  .movieCard__heading {
+    font-size: 15px;
+  }
+}
+
+/* 900px - Планшеты горизонтальные */
+@media (max-width: 900px) {
+  .movieCard {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .movieCard__poster {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  .movieCard__info {
+    order: 1;
+  }
+
+  .movieCard__heading {
+    justify-content: center;
+  }
+
+  .movieCard__btns {
+    justify-content: center;
+  }
+}
+
+/* 768px - Планшеты вертикальные */
+@media (max-width: 768px) {
+  .movieCard {
+    gap: 32px;
+    padding: 32px 20px;
+  }
+
+  .movieCard__title {
+    font-size: 32px;
+  }
+
+  .movieCard__description {
+    font-size: 16px;
+  }
+
   .movieCard__trailerBtn {
-    grid-column: span 3;
+    min-width: 160px;
+    padding: 14px 28px;
   }
 }
 
-@media (max-width: 429px) {
-  .movieCard__aboutBtn {
-    grid-column: span 3;
+/* 600px - Большие мобильные */
+@media (max-width: 600px) {
+  .movieCard {
+    gap: 28px;
+    padding: 28px 16px;
+  }
+
+  .movieCard__title {
+    font-size: 28px;
+  }
+
+  .movieCard__description {
+    font-size: 15px;
+  }
+
+  .movieCard__heading {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .ratingContent {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .movieCard__btns {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .movieCard__trailerBtn {
+    min-width: 140px;
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .movieCard__favoriteBtn {
+    width: 56px;
+    height: 48px;
   }
 }
 
-.movieCard__picture {
-  border-radius: 20px;
-  overflow: hidden;
+/* 480px - Мобильные */
+@media (max-width: 480px) {
+  .movieCard {
+    gap: 24px;
+    padding: 24px 12px;
+  }
+
+  .movieCard__title {
+    font-size: 24px;
+  }
+
+  .movieCard__description {
+    font-size: 14px;
+  }
+
+  .movieCard__heading {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .movieCard__btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .movieCard__trailerBtn {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .movieCard__favoriteBtn {
+    width: 100%;
+    max-width: 200px;
+    height: 48px;
+  }
 }
 
+/* 375px - Маленькие мобильные */
+@media (max-width: 375px) {
+  .movieCard {
+    gap: 20px;
+    padding: 20px 8px;
+  }
 
-.movieCard {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 32px;
-}
+  .movieCard__title {
+    font-size: 22px;
+  }
 
-.movieCard__img {
-  width: 100%;
-  border-radius: 16px;
-}
+  .movieCard__description {
+    font-size: 13px;
+  }
 
-.movieCard__btns {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  .ratingContent {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .movieCard__year,
+  .movieCard__genre,
+  .movieCard__duration {
+    font-size: 13px;
+  }
 }

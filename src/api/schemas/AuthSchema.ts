@@ -1,21 +1,32 @@
 import { z } from "zod";
 
-export const loginResponseSchema = z.object({
-  login: z.object({ 
-    result: z.boolean() 
-  }).optional(),
-  result: z.boolean().optional(),
-  success: z.boolean().optional(), 
-  message: z.string().optional(),
-  error: z.string().optional()
-}).refine((data) => {
-  return data.login !== undefined || data.result !== undefined || data.success !== undefined;
-}, {
-  message: "Invalid login response format"
-});
+export const loginResponseSchema = z
+  .object({
+    login: z
+      .object({
+        result: z.boolean(),
+      })
+      .optional(),
+    result: z.boolean().optional(),
+    success: z.boolean().optional(),
+    message: z.string().optional(),
+    error: z.string().optional(),
+  })
+  .refine(
+    (data) => {
+      return (
+        data.login !== undefined ||
+        data.result !== undefined ||
+        data.success !== undefined
+      );
+    },
+    {
+      message: "Invalid login response format",
+    }
+  );
 
 export const userSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   email: z.string().email(),
   name: z.string(),
   surname: z.string(),

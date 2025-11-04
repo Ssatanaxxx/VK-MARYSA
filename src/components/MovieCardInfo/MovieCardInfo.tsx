@@ -1,7 +1,7 @@
 "use client"
 import { FC } from "react";
 import styles from "./MovieCardInfo.module.css";
-import { IMovie } from "@/api/IMovies/IMovie";
+import { IMovie } from "@/api/schemas/Movies";
 
 const MovieCardInfo: FC<{ movie: IMovie }> = ({ movie }) => {
   console.log(movie);
