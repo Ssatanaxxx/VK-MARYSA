@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img width="1822" height="882" alt="image" src="https://github.com/user-attachments/assets/d9d65590-2634-4d0a-84be-12b907b4bff7" />
+<img width="1711" height="902" alt="image" src="https://github.com/user-attachments/assets/b6368b88-6f5d-456d-92b8-e71e61817b37" />
+VK MARYSA 🎬
+Современная веб-платформа для кинолюбителей с персонализированными рекомендациями и социальными функциями.
 
-## Getting Started
+https://img.shields.io/badge/Next.js-15.0+-black?style=for-the-badge&logo=next.js
+https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript
+https://img.shields.io/badge/React-18.0+-61dafb?style=for-the-badge&logo=react
 
-First, run the development server:
+✨ Особенности
+🎬 Умные рекомендации - Персонализированная подборка фильмов на основе ваших предпочтений
 
-```bash
+👥 Социальные функции - Добавляйте друзей, делитесь рецензиями и обсуждайте фильмы
+
+⭐ Система рейтингов - Оценивайте фильмы и читайте рецензии других пользователей
+
+📱 Адаптивный дизайн - Удобный интерфейс на всех устройствах
+
+⚡ Высокая производительность - Благодаря Next.js 15 и современному стеку технологий
+
+🛠 Технологический стек
+Frontend
+Framework: Next.js 15 с App Router
+
+Language: TypeScript + JavaScript
+
+UI: React 18+, CSS Modules
+
+Styling: Pure CSS с современными функциями
+
+State Management: Встроенные React хуки
+
+Data Fetching: TanStack Query v5
+
+Validation: Zod для схем валидации
+
+HTTP Client: Fetch API
+
+Backend & API
+API Specification: OpenAPI 3.0
+
+Authentication: JWT-based auth system
+
+API Client: Автогенерируемый из OpenAPI спецификации
+
+🚀 Быстрый старт
+Предварительные требования
+Node.js 18.17 или выше
+
+npm, yarn или pnpm
+
+Установка и запуск
+bash
+# Клонирование репозитория
+git clone https://github.com/Ssatanaxxx/VK-MARYSA.git
+cd VK-MARYSA
+
+# Установка зависимостей
+npm install
+# или
+yarn install
+# или
+pnpm install
+
+# Запуск в режиме разработки
 npm run dev
-# or
+# или
 yarn dev
-# or
+# или
 pnpm dev
-# or
-bun dev
-```
+Откройте http://localhost:3000 в браузере.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Производственная сборка
+bash
+# Сборка проекта
+npm run build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Запуск production версии
+npm start
+📁 Структура проекта
+text
+VK-MARYSA/
+├── app/                    # App Router директория
+│   ├── (auth)/            # Auth группы роутов
+│   ├── api/               # API routes
+│   └── globals.css        # Глобальные стили
+├── components/            # React компоненты
+│   ├── UI-kit/           # Переиспользуемые UI компоненты
+│   ├── Auth/             # Компоненты аутентификации
+│   └── Layout/           # Компоненты layout
+├── hooks/                # Кастомные React хуки
+├── lib/                  # Утилиты и конфигурации
+├── public/               # Статические файлы
+└── types/                # TypeScript типы
+🔧 Конфигурация
+Переменные окружения
+Создайте файл .env.local:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+env
+NEXT_PUBLIC_API_URL=your_api_url
+NEXT_PUBLIC_APP_URL=your_app_url
+🎯 Ключевые возможности
+Аутентификация и безопасность
+🔐 JWT-based аутентификация
 
-## Learn More
+🛡 Защищенные маршруты
 
-To learn more about Next.js, take a look at the following resources:
+👤 Управление профилем пользователя
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Кинокаталог
+🎭 Полная информация о фильмах
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🔍 Умный поиск и фильтрация
 
-## Deploy on Vercel
+💫 Персонализированные рекомендации
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Социальный функционал
+👥 Система друзей
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+💬 Комментарии и обсуждения
+
+⭐ Рейтинги и рецензии
+
+🚧 В разработке
+Приоритетные задачи
+Тестирование - покрытие проекта unit и integration тестами
+
+Исправление багов - доработка системы регистрации и аутентификации
+
+State Management - оценка внедрения RTK/Zustand для глобального состояния
+
+Планируемые улучшения
+PWA поддержка
+
+Офлайн-режим
+
+Push-уведомления
+
+Расширенная аналитика
+
+Интеграция с внешними API кинопроката
+
+🤝 Участие в разработке
+Мы приветствуем вклад в развитие проекта!
+
+Форкните репозиторий
+
+Создайте feature ветку (git checkout -b feature/amazing-feature)
+
+Закоммитьте изменения (git commit -m 'Add some amazing feature')
+
+Запушьте в ветку (git push origin feature/amazing-feature)
+
+Откройте Pull Request
+
+📝 Скрипты
+bash
+npm run dev          # Запуск development сервера
+npm run build        # Сборка production версии
+npm run start        # Запуск production сервера
+npm run lint         # Запуск линтера
+npm run test         # Запуск тестов
+🐛 Отчеты об ошибках
+Нашли баг? Пожалуйста, создайте issue с подробным описанием.
+
+📄 Лицензия
+Этот проект лицензирован под MIT License - смотрите файл LICENSE для деталей.
+
+👨‍💻 Автор
+Ssatanaxxx
+
+GitHub: @Ssatanaxxx
+
+🙏 Благодарности
+Команда Next.js за отличный фреймворк
+
+Сообщество React за бесценные ресурсы
+
+Все контрибьюторы проекта
+
+⭐ Не забудьте поставить звезду репозиторию, если проект вам понравился!
