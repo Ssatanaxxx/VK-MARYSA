@@ -170,7 +170,7 @@ npm run test         # Запуск тестов
 Ssatanaxxx
 
 GitHub: @Ssatanaxxx
-
+# НА ДЕМО ПРОЕКТ МОЖНО ГЛЯНУТЬ ТУТ vk-marysa-4c6a.vercel.app
 🙏 Благодарности
 Команда Next.js за отличный фреймворк
 
