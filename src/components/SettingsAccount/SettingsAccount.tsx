@@ -10,7 +10,9 @@ export default function SettingsAccount() {
   const handleLogout = async () => {
     try {
       await logout();
-      router.push("/");
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
     } catch (error) {
       console.error("Logout error:", error);
     }

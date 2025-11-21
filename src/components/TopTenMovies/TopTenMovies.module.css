@@ -8,17 +8,11 @@
   gap: 64px;
 }
 
-@media (max-width: 849px) {
-  .topMovies__content {
-    gap: 40px;
-  }
-}
-
 .topMovies__title {
   margin: 0;
   font-weight: 700;
-  color: #FFFFFF;
-  font-size: 40px;
+  color: #ffffff;
+  font-size: 43px;
   line-height: 48px;
 }
 
@@ -30,31 +24,6 @@
   grid-template-columns: repeat(5, minmax(224px, 1fr));
   gap: 64px 40px;
   counter-reset: counter;
-}
-
-@media (max-width: 1439px) {
-  .topMovies__list {
-    grid-template-columns: repeat(4, minmax(224px, 1fr));
-  }
-}
-
-@media (max-width: 1149px) {
-  .topMovies__list {
-    grid-template-columns: repeat(3, minmax(224px, 1fr));
-  }
-}
-
-@media (max-width: 849px) {
-  .topMovies__list {
-    grid-template-columns: repeat(2, minmax(224px, 1fr));
-    gap: 40px;
-  }
-}
-
-@media (max-width: 549px) {
-  .topMovies__list {
-    grid-template-columns: repeat(1, minmax(224px, 1fr));
-  }
 }
 
 .topMovies__item {
@@ -79,9 +48,229 @@
   color: indigo;
   background-color: #fff;
   user-select: none;
+  z-index: 2;
 }
 
 .topMovies__img {
   border-radius: 16px;
   height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1439px) {
+  .topMovies__list {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .topMovies__content {
+    gap: 56px;
+  }
+
+  .topMovies__title {
+    font-size: 38px;
+    line-height: 44px;
+  }
+
+  .topMovies__list {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 56px 32px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .topMovies {
+    padding-top: 32px;
+  }
+
+  .topMovies__content {
+    gap: 48px;
+  }
+
+  .topMovies__title {
+    font-size: 34px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .topMovies__list {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 48px 28px;
+  }
+
+  .topMovies__item::before {
+    width: 54px;
+    height: 42px;
+    font-size: 20px;
+    top: -10px;
+    left: -10px;
+  }
+}
+
+@media (max-width: 849px) {
+  .topMovies {
+    padding-top: 28px;
+  }
+
+  .topMovies__content {
+    gap: 40px;
+  }
+
+  .topMovies__title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .topMovies__list {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 40px 24px;
+  }
+
+  .topMovies__item::before {
+    width: 48px;
+    height: 38px;
+    font-size: 18px;
+    top: -8px;
+    left: -8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topMovies__title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .topMovies__list {
+    gap: 36px 20px;
+  }
+
+  .topMovies__img {
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .topMovies {
+    padding-top: 24px;
+  }
+
+  .topMovies__content {
+    gap: 32px;
+  }
+
+  .topMovies__title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .topMovies__list {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 32px 16px;
+  }
+
+  .topMovies__item::before {
+    width: 42px;
+    height: 34px;
+    font-size: 16px;
+    top: -6px;
+    left: -6px;
+  }
+
+  .topMovies__img {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 549px) {
+  .topMovies__list {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    gap: 28px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .topMovies__item::before {
+    width: 46px;
+    height: 36px;
+    font-size: 17px;
+    top: -8px;
+    left: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topMovies {
+    padding-top: 20px;
+  }
+
+  .topMovies__content {
+    gap: 28px;
+  }
+
+  .topMovies__title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .topMovies__list {
+    max-width: 260px;
+    gap: 24px;
+  }
+
+  .topMovies__item::before {
+    width: 40px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .topMovies__img {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .topMovies {
+    padding-top: 16px;
+  }
+
+  .topMovies__content {
+    gap: 24px;
+  }
+
+  .topMovies__title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .topMovies__list {
+    max-width: 220px;
+    gap: 20px;
+  }
+
+  .topMovies__item::before {
+    width: 36px;
+    height: 30px;
+    font-size: 15px;
+    top: -6px;
+    left: -6px;
+  }
+
+  .topMovies__img {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .topMovies__list {
+    max-width: 200px;
+  }
+
+  .topMovies__item::before {
+    width: 32px;
+    height: 28px;
+    font-size: 14px;
+  }
 }

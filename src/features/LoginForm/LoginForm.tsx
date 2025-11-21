@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormData } from "@/api/schemas/AuthSchema";
 import { useAuth } from "@/hooks/useAuth";
 import "./AuthModal.css";
+import { BlackLogo } from "@/components/UI-kit/BlackLogo/BlackLogo";
 
 interface LoginFormProps {
   onSwitchToRegister: () => void;
@@ -47,8 +48,7 @@ export const LoginForm = ({
         <button className="auth-modal-close" onClick={onClose}>
           ×
         </button>
-
-        <h2 className="auth-modal-title">Вход</h2>
+          <BlackLogo />
 
         {showSuccessMessage && (
           <div className="success-notification">

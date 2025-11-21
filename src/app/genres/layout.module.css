@@ -1,5 +1,3 @@
-/* app/genres/layout.module.css */
-
 .loading,
 .error,
 .empty {
@@ -66,7 +64,6 @@
   transform: scale(1.02);
 }
 
-/* Псевдо-постер (заглушка) */
 .genres__card::before {
   content: "";
   position: absolute;
@@ -78,7 +75,6 @@
   z-index: 1;
 }
 
-/* Контейнер для текста жанра */
 .genres__name {
   position: absolute;
   bottom: 0;
@@ -98,55 +94,108 @@
   padding: 0 15px;
 }
 
-/* Эффект при ховере и фокусе */
 .genres__link:hover .genres__name,
 .genres__link:focus .genres__name {
-  background: #8b008b; /* Пурпурный цвет */
+  background: #8b008b;
   color: white;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
-  .genres__list {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
+  .loading,
+  .error,
+  .empty {
+    padding: 40px 20px;
+    font-size: 16px;
   }
-
+  
   .genres__title {
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .genres__list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
   }
 
   .genres__card {
-    height: 250px;
+    height: 260px;
   }
 
   .genres__name {
-    font-size: 18px;
+    font-size: 20px;
+    height: 35%;
+  }
+  
+  .genres__card::before {
+    height: 65%;
   }
 }
 
 @media (max-width: 480px) {
-  .genres__list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  .loading,
+  .error,
+  .empty {
+    padding: 32px 16px;
+    font-size: 15px;
   }
-
+  
   .genres__title {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+  }
+
+  .genres__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .genres__card {
-    height: 200px;
+    height: 180px;
+    border-radius: 8px;
   }
 
   .genres__name {
     font-size: 16px;
+    height: 40%;
+    padding: 0 10px;
+  }
+  
+  .genres__card::before {
+    height: 60%;
+  }
+  
+  .genres__item:hover {
+    transform: translateY(-3px);
   }
 }
 
-/* Вспомогательные классы */
+@media (max-width: 375px) {
+  .genres__list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .genres__title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .genres__card {
+    height: 160px;
+  }
+  
+  .genres__name {
+    font-size: 15px;
+    height: 35%;
+  }
+  
+  .genres__card::before {
+    height: 65%;
+  }
+}
+
 .list-reset {
   list-style: none;
   padding: 0;

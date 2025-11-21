@@ -5,9 +5,11 @@ import minutesToString from "@/utils/minutesToString";
 import MovieTrailerPopup from "../MovieTrailerPopup/MovieTrailerPopup";
 import Link from "next/link";
 import { useRandomMovie } from "@/hooks/useRandomMovie";
-import { useState } from "react";
+import { memo, useState } from "react";
+import UIFavoriteButton from "../UI-kit/UIFavoriteButton/UIFavoriteButton";
+import { IMovie } from "@/api/schemas/Movies";
 
-const RandomMovie = () => {
+const RandomMovie = memo(() => {
   const { data: movie, isLoading, error, refetch } = useRandomMovie();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -79,11 +81,7 @@ const RandomMovie = () => {
           >
             О фильме
           </Link>
-          <button className={`${styles.movieCard__favoriteBtn} btn`}>
-            <svg width="24" height="24" aria-hidden="true">
-              <use href="/sprites.svg#icon-favorite"></use>
-            </svg>
-          </button>
+          <UIFavoriteButton movie={movie as IMovie} />
           <button
             className={`${styles.movieCard__favoriteBtn} btn`}
             onClick={handleRefetch}
@@ -107,7 +105,7 @@ const RandomMovie = () => {
             height={552}
             className={styles.posterImage}
             sizes="(max-width: 900px) 100vw, 680px"
-            priority
+            priority={true}
           />
         ) : (
           <div className={styles.noPoster}>Нет постера</div>
@@ -115,5 +113,7 @@ const RandomMovie = () => {
       </div>
     </div>
   );
-};
+});
+
+RandomMovie.displayName = "RandomMovie";
 export default RandomMovie;

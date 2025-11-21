@@ -7,9 +7,9 @@ export async function addToFavorites(movieId: number): Promise<void> {
     method: "POST",
     credentials: "include",
     headers: {
-      ...defaultConfig.headers,
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ movieId }),
+    body: JSON.stringify({ id: String(movieId) }),
   });
 
   await validateResponse(response);
@@ -44,11 +44,6 @@ export async function getFavorites(): Promise<IMovie[]> {
 }
 
 export async function checkIsFavorite(movieId: number): Promise<boolean> {
-  try {
-    const favorites = await getFavorites();
-    return favorites.some((movie) => movie.id === movieId);
-  } catch (error) {
-    console.error("Error checking favorite:", error);
-    return false;
-  }
+  const favorites = await getFavorites();
+  return favorites.some((movie) => movie.id === movieId);
 }

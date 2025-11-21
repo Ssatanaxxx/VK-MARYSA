@@ -1,8 +1,8 @@
 .navLink {
   color: #ffffff;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 400;
   padding: 8px 0;
   transition: all 0.3s ease;
   position: relative;
@@ -10,6 +10,7 @@
   white-space: nowrap;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .navLink:hover {
@@ -21,33 +22,81 @@
   border-bottom-color: #dc5dfc;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .navLink {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .navLink {
-    font-size: 15px;
+    font-size: 20px;
+    padding: 7px 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .navLink {
+    font-size: 18px;
+    padding: 6px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLink {
+    font-size: 16px;
+    padding: 5px 0;
+    border-bottom-width: 1.5px;
   }
 }
 
 @media (max-width: 640px) {
   .navLink {
-    font-size: 14px;
+    font-size: 15px;
+    padding: 4px 0;
   }
 }
 
 @media (max-width: 480px) {
   .navLink {
-    font-size: 13px;
-    padding: 4px 0;
+    font-size: 14px;
+    padding: 3px 0;
+    border-bottom-width: 1px;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 375px) {
+  .navLink {
+    font-size: 13px;
+    padding: 2px 0;
+  }
+}
+
+@media (max-width: 320px) {
   .navLink {
     font-size: 12px;
+    padding: 1px 0;
   }
+}
+
+@media (hover: none) {
+  .navLink:hover {
+    color: #ffffff;
+  }
+
+  .navLinkActive:hover {
+    color: #dc5dfc;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink {
+    transition: none;
+  }
+}
+
+.navLink:focus-visible {
+  outline: 2px solid #dc5dfc;
+  outline-offset: 2px;
+  border-radius: 2px;
 }

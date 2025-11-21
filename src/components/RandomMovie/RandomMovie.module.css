@@ -5,7 +5,6 @@
   color: white;
   padding: 40px 0;
   max-width: 1200px;
-  margin: 0 auto;
 }
 
 .content {
@@ -28,7 +27,6 @@
 }
 
 .posterImage {
-  object-fit: cover;
   border-radius: 20px;
 }
 
@@ -74,7 +72,6 @@
   font-size: 16px;
 }
 
-/* Название фильма */
 .title {
   margin: 0;
   font-weight: 700;
@@ -83,22 +80,19 @@
   color: white;
 }
 
-/* Описание */
 .movieCard__description {
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-/* Разделитель */
 .divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.1);
   margin: 8px 0;
 }
 
-/* Кнопки управления */
 .movieCard__controls {
   display: flex;
   align-items: center;
@@ -106,7 +100,6 @@
   margin-top: auto;
 }
 
-/* Основные кнопки */
 .movieCard__trailerBtn,
 .movieCard__aboutBtn {
   padding: 16px 32px;
@@ -145,7 +138,6 @@
   transform: translateY(-2px);
 }
 
-/* Иконковые кнопки (избранное и обновить) */
 .movieCard__favoriteBtn {
   width: 68px;
   height: 56px;
@@ -166,144 +158,88 @@
   transform: translateY(-2px);
 }
 
-/* Стили для кнопки обновления (refresh) */
-.movieCard__refreshBtn {
-  width: 68px;
-  height: 56px;
-  border-radius: 28px;
-  background-color: #333;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.movieCard__refreshBtn:hover {
-  background-color: #444;
-  border-color: #67a5eb;
-  transform: translateY(-2px) rotate(90deg);
-}
-
-/* Состояния загрузки и ошибок */
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #333;
-  border-top: 4px solid #67a5eb;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-.error {
-  text-align: center;
-  color: #e50914;
-  padding: 40px;
-  font-size: 18px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* ===== АДАПТИВ ===== */
-
-/* 1140px - Большие десктопы */
 @media (max-width: 1140px) {
   .card {
     gap: 50px;
     padding: 40px 20px;
   }
-  
+
   .poster {
     width: 600px;
   }
-  
+
   .title {
     font-size: 42px;
   }
-  
+
   .movieCard__description {
     font-size: 17px;
   }
 }
 
-/* 1024px - Десктопы */
 @media (max-width: 1024px) {
   .card {
     gap: 40px;
   }
-  
+
   .poster {
     width: 500px;
   }
-  
+
   .title {
     font-size: 36px;
   }
-  
+
   .movieCard__description {
     font-size: 16px;
   }
-  
+
   .meta {
     font-size: 15px;
   }
 }
 
-/* 900px - Планшеты горизонтальные */
 @media (max-width: 900px) {
   .card {
     flex-direction: column;
     gap: 40px;
     text-align: center;
   }
-  
+
   .poster {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
     order: 2;
   }
-  
+
   .content {
     order: 1;
   }
-  
+
   .meta {
     justify-content: center;
   }
-  
+
   .movieCard__controls {
     justify-content: center;
   }
 }
 
-/* 768px - Планшеты вертикальные */
 @media (max-width: 768px) {
   .card {
     gap: 32px;
     padding: 32px 20px;
   }
-  
+
   .title {
     font-size: 32px;
   }
-  
+
   .movieCard__description {
     font-size: 16px;
   }
-  
+
   .movieCard__trailerBtn,
   .movieCard__aboutBtn {
     min-width: 160px;
@@ -311,110 +247,106 @@
   }
 }
 
-/* 600px - Большие мобильные */
 @media (max-width: 600px) {
   .card {
     gap: 28px;
     padding: 28px 16px;
   }
-  
+
   .title {
     font-size: 28px;
   }
-  
+
   .movieCard__description {
     font-size: 15px;
   }
-  
+
   .meta {
     gap: 12px;
     font-size: 14px;
   }
-  
+
   .ratingContent {
     padding: 6px 12px;
     font-size: 14px;
   }
-  
+
   .movieCard__controls {
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
   }
-  
+
   .movieCard__trailerBtn,
   .movieCard__aboutBtn {
     min-width: 140px;
     padding: 12px 24px;
     font-size: 15px;
   }
-  
-  .movieCard__favoriteBtn,
-  .movieCard__refreshBtn {
+
+  .movieCard__favoriteBtn {
     width: 56px;
     height: 48px;
   }
 }
 
-/* 480px - Мобильные */
 @media (max-width: 480px) {
   .card {
     gap: 24px;
     padding: 24px 12px;
   }
-  
+
   .title {
     font-size: 24px;
   }
-  
+
   .movieCard__description {
     font-size: 14px;
   }
-  
+
   .meta {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .movieCard__controls {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .movieCard__trailerBtn,
   .movieCard__aboutBtn {
     width: 100%;
     min-width: auto;
+    padding: 12px 1px;
   }
-  
-  .movieCard__favoriteBtn,
-  .movieCard__refreshBtn {
+
+  .movieCard__favoriteBtn {
     width: 100%;
     max-width: 200px;
     height: 48px;
   }
 }
 
-/* 375px - Маленькие мобильные */
 @media (max-width: 375px) {
   .card {
     gap: 20px;
     padding: 20px 8px;
   }
-  
+
   .title {
     font-size: 22px;
   }
-  
+
   .movieCard__description {
     font-size: 13px;
   }
-  
+
   .ratingContent {
     font-size: 13px;
     padding: 5px 10px;
   }
-  
+
   .movieCard__year,
   .movieCard__genre,
   .movieCard__duration {

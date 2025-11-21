@@ -45,5 +45,92 @@
 }
 
 .account__navButton:hover {
-  border-bottom: 1.5px solid #DC5DFC;
+  border-bottom: 1.5px solid #dc5dfc;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .account__container {
+    padding-top: 48px;
+  }
+
+  .account__title {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 48px;
+  }
+
+  .account__navList {
+    gap: 48px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    }
+
+  .account__navButton {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .account__navButton svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .account__container {
+    padding-top: 32px;
+  }
+
+  .account__title {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .account__navList {
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .account__navButton {
+    font-size: 18px;
+    line-height: 24px;
+    gap: 6px;
+  }
+
+  .account__navButton svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .account__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .account__navList {
+    gap: 20px;
+  }
+
+  .account__navButton {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }

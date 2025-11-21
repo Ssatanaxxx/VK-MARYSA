@@ -12,7 +12,11 @@
   gap: 12px;
   width: 100%;
   max-width: 200px;
-  animation: pulse 2s infinite ease-in-out;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  padding: 12px;
+  border-radius: 12px;
 }
 
 .skeletonPoster {
@@ -39,32 +43,28 @@
   border-radius: 4px;
 }
 
-.movieSkeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  padding: 12px;
-  border-radius: 12px;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
   }
   100% {
     background-position: 200% 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .movieSkeleton {
+    max-width: 180px;
+  }
+
+  .skeletonPoster {
+    height: 270px;
   }
 }
 
@@ -77,9 +77,148 @@
 
   .movieSkeleton {
     max-width: 150px;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
   }
 
   .skeletonPoster {
     height: 220px;
+    border-radius: 6px;
+  }
+
+  .skeletonTitle {
+    height: 18px;
+  }
+
+  .skeletonRating {
+    height: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .movieSkeleton {
+    max-width: 140px;
+    gap: 8px;
+  }
+
+  .skeletonPoster {
+    height: 200px;
+  }
+
+  .skeletonTitle {
+    height: 16px;
+  }
+
+  .skeletonRating {
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeletonGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .movieSkeleton {
+    max-width: 100%;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  .skeletonPoster {
+    height: 180px;
+    border-radius: 6px;
+  }
+
+  .skeletonTitle {
+    height: 14px;
+    width: 70%;
+  }
+
+  .skeletonRating {
+    height: 12px;
+    width: 35%;
+  }
+}
+
+@media (max-width: 375px) {
+  .skeletonGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 8px;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .movieSkeleton {
+    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .skeletonPoster {
+    width: 80px;
+    height: 120px;
+    flex-shrink: 0;
+  }
+
+  .skeletonContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skeletonTitle {
+    width: 90%;
+    height: 16px;
+  }
+
+  .skeletonRating {
+    width: 50%;
+    height: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .skeletonGrid {
+    max-width: 240px;
+  }
+
+  .movieSkeleton {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .skeletonPoster {
+    width: 70px;
+    height: 105px;
+  }
+
+  .skeletonTitle {
+    height: 14px;
+  }
+
+  .skeletonRating {
+    height: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movieSkeleton {
+    animation: none;
+    background: #f0f0f0;
   }
 }

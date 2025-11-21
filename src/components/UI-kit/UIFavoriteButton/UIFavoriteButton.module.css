@@ -1,0 +1,152 @@
+.movieCard__favoriteBtn {
+  width: 68px;
+  height: 56px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #393b3c;
+  padding: 8px;
+}
+
+.movieCard__favoriteBtn:hover {
+  background: rgba(220, 93, 252, 0.1);
+  border-color: #dc5dfc;
+}
+
+.movieCard__favoriteBtnActive {
+  background: #dc5dfc;
+  border-color: #dc5dfc;
+}
+
+.movieCard__favoriteBtnActive svg {
+  filter: brightness(0) invert(1);
+}
+
+.movieCard__favoriteBtnActive:hover {
+  background: #c445e0;
+  border-color: #c445e0;
+}
+
+.movieCard__favoriteBtnLoading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loadingSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #dc5dfc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .movieCard__favoriteBtn {
+    width: 62px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movieCard__favoriteBtn {
+    width: 58px;
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  .loadingSpinner {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .movieCard__favoriteBtn {
+    width: 52px;
+    height: 46px;
+    border-radius: 23px;
+    padding: 6px;
+  }
+
+  .loadingSpinner {
+    width: 13px;
+    height: 13px;
+    border-width: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieCard__favoriteBtn {
+    width: 100%;
+    max-width: 200px;
+    height: 48px;
+    border-radius: 24px;
+  }
+
+  .loadingSpinner {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .movieCard__favoriteBtn {
+    max-width: 180px;
+    height: 44px;
+    border-radius: 22px;
+    padding: 6px;
+  }
+
+  .loadingSpinner {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .movieCard__favoriteBtn {
+    max-width: 160px;
+    height: 42px;
+    border-radius: 21px;
+  }
+}
+
+@media (hover: none) {
+  .movieCard__favoriteBtn:hover {
+    background-color: #393b3c;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .movieCard__favoriteBtnActive:hover {
+    background: #dc5dfc;
+    border-color: #dc5dfc;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movieCard__favoriteBtn {
+    transition: none;
+  }
+
+  .loadingSpinner {
+    animation: none;
+    border: 2px solid #dc5dfc;
+    border-top: 2px solid transparent;
+  }
+}

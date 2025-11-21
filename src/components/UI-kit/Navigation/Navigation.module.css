@@ -28,8 +28,8 @@
 .navLink {
   color: #ffffff;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 400;
   padding: 8px 0;
   transition: all 0.3s ease;
   position: relative;
@@ -58,12 +58,13 @@
   align-items: center;
   gap: 12px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 25px;
-  padding: 10px 20px;
+  border-radius: 8px;
+  padding: 12px 13px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   width: 100%;
+  margin-left: 20px;
 }
 
 .searchInputWrapper:focus-within {
@@ -94,9 +95,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ===== АДАПТИВ ===== */
-
-@media (max-width: 1140px) {
+@media (max-width: 1200px) {
   .navList {
     gap: 32px;
   }
@@ -104,23 +103,59 @@
   .navItem:nth-child(3) {
     max-width: 500px;
   }
+
+  .navLink {
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 1024px) {
   .navList {
-    gap: 24px;
+    gap: 28px;
   }
 
   .navLink {
-    font-size: 16px;
+    font-size: 20px;
+  }
+
+  .navItem:nth-child(3) {
+    max-width: 450px;
+  }
+
+  .searchInputWrapper {
+    margin-left: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navList {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .navLink {
+    font-size: 18px;
   }
 
   .navItem:nth-child(3) {
     max-width: 400px;
   }
+
+  .searchInputWrapper {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .searchIcon {
+    width: 22px;
+  }
+
+  .searchInput {
+    font-size: 15px;
+  }
 }
 
-@media (max-width: 899px) {
+@media (max-width: 768px) {
   .navList {
     gap: 20px;
   }
@@ -135,6 +170,7 @@
     order: 3;
     flex: 1 1 100%;
     max-width: 100%;
+    margin-top: 16px;
   }
 
   .searchContainer {
@@ -142,25 +178,14 @@
   }
 
   .searchInputWrapper {
-    width: 90%;
-  }
-}
-
-@media (max-width: 767px) {
-  .navList {
-    gap: 16px;
+    width: 100%;
+    margin-left: 0;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .navLink {
-    font-size: 15px;
-  }
-
-  .searchInputWrapper {
-    padding: 8px 16px;
-  }
-
-  .searchInput {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -178,10 +203,23 @@
   .navItem:nth-child(3) {
     order: 2;
     flex: 1 1 100%;
-    margin-top: 0;
+    margin-top: 12px;
   }
 
   .navLink {
+    font-size: 15px;
+  }
+
+  .searchInputWrapper {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .searchIcon {
+    width: 20px;
+  }
+
+  .searchInput {
     font-size: 14px;
   }
 }
@@ -192,13 +230,12 @@
   }
 
   .searchInputWrapper {
-    padding: 6px 12px;
-    gap: 8px;
+    padding: 6px 10px;
+    gap: 6px;
   }
 
   .searchIcon {
     width: 18px;
-    height: 18px;
   }
 
   .searchInput {
@@ -206,21 +243,62 @@
   }
 
   .navLink {
-    font-size: 13px;
-    padding: 4px 0;
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .searchInputWrapper {
+    backdrop-filter: none;
+    width: 300px;
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 375px) {
   .navList {
     gap: 12px;
+  }
+
+  .navLink {
+    font-size: 13px;
+  }
+
+  .searchInput::placeholder {
+    font-size: 12px;
+  }
+
+  .searchInputWrapper {
+    padding: 5px 8px;
+  }
+
+  .searchIcon {
+    width: 16px;
+  }
+
+  .searchInput {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .navList {
+    gap: 8px;
   }
 
   .navLink {
     font-size: 12px;
   }
 
-  .searchInput::placeholder {
-    font-size: 12px;
+  .searchInputWrapper {
+    padding: 4px 6px;
+  }
+}
+
+@media (hover: none) {
+  .navLink:hover {
+    color: #ffffff;
+  }
+
+  .navLinkActive:hover {
+    color: #dc5dfc;
   }
 }

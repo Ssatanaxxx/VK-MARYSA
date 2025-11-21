@@ -1,9 +1,15 @@
-'use client'
+"use client";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { addToFavorites, getFavorites, removeFromFavorites } from "@/api/favorites/favorites";
+import {
+  addToFavorites,
+  getFavorites,
+  removeFromFavorites,
+} from "@/api/favorites/favorites";
+import { useAuth } from "./useAuth";
 
 export const useFavorites = () => {
   const queryClient = useQueryClient();
+  const { user } = useAuth();
 
   const {
     data: favorites = [],
@@ -12,6 +18,7 @@ export const useFavorites = () => {
   } = useQuery({
     queryKey: ["favorites"],
     queryFn: getFavorites,
+    enabled: !!user,
   });
 
   const addMutation = useMutation({

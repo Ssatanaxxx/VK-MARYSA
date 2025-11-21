@@ -17,7 +17,6 @@ export const Navigation = () => {
   const {
     data: searchResults,
     isLoading: isSearching,
-    error,
   } = useMovies(
     {
       limit: 5,
@@ -28,14 +27,6 @@ export const Navigation = () => {
       staleTime: 1000 * 60,
     }
   );
-
-  // ПРОСТАЯ ОТЛАДКА
-  console.log("🔍 SEARCH:", {
-    query: searchQuery,
-    results: searchResults?.length || 0,
-    loading: isSearching,
-    error: error?.message,
-  });
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -112,7 +103,6 @@ export const Navigation = () => {
               />
             </div>
 
-            {/* ПРОСТОЕ УСЛОВИЕ */}
             {isDropdownOpen && searchQuery.length > 0 && (
               <SearchDropdown
                 movies={searchResults || []}

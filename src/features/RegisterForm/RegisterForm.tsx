@@ -7,6 +7,7 @@ import {
 } from "@/api/schemas/AuthSchema";
 import { useAuth } from "@/hooks/useAuth";
 import "./AuthModal.css";
+import { BlackLogo } from "@/components/UI-kit/BlackLogo/BlackLogo";
 
 interface RegisterFormProps {
   onSwitchToLogin: () => void;
@@ -40,6 +41,10 @@ export const RegisterForm = ({
       if (result.success) {
         reset();
         onRegisterSuccess();
+
+        setTimeout(() => {
+          onSwitchToLogin()
+        }, 2000)
       } else {
         console.error("Registration failed:", result.error);
       }
@@ -55,7 +60,9 @@ export const RegisterForm = ({
           ×
         </button>
 
-        <h2 className="auth-modal-title">Регистрация</h2>
+        <h2 className="auth-modal-title">
+          <BlackLogo />
+        </h2>
 
         <form className="auth-form" onSubmit={handleSubmit(handleRegister)}>
           <div className="form-group">

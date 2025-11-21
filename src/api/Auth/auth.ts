@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import {
   loginResponseSchema,
   userSchema,
@@ -12,12 +13,13 @@ export async function loginUser(
   password: string
 ): Promise<LoginResponse> {
   try {
-    const response = await fetch("https://cinemaguide.skillbox.cc/auth/login", {
-      method: "POSt",
+    const response = await fetch(`${BASE_URL}/auth/login`, {
+      method: "POST",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
+      mode: "cors",
       body: JSON.stringify({ email, password }),
     });
 
@@ -37,7 +39,7 @@ export async function loginUser(
 }
 
 export async function registerUser(data: RegisterFormData): Promise<void> {
-  const response = await fetch("https://cinemaguide.skillbox.cc/user", {
+  const response = await fetch(`${BASE_URL}/user`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -54,22 +56,28 @@ export async function registerUser(data: RegisterFormData): Promise<void> {
   await validateResponse(response);
 }
 
-export async function fetchUser(): Promise<User> {
-  const response = await fetch("https://cinemaguide.skillbox.cc/profile", {
+export async function fetchUser(): Promise<User | null> {
+  const response = await fetch(`${BASE_URL}/profile`, {
     method: "GET",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
   });
-  await validateResponse(response);
+
+  if (response.status === 401) {
+    return null;
+  }
+  if (!response.ok) {
+    throw new Error(`Failed to fetch user: ${response.status}`);
+  }
   const data = await response.json();
   return userSchema.parse(data);
 }
 
 export async function logoutUser(): Promise<void> {
-  const response = await fetch("https://cinemaguide.skillbox.cc/auth/logout", {
-    method: "POST",
+  const response = await fetch(`${BASE_URL}/auth/logout`, {
+    method: "GET",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",

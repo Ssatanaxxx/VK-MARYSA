@@ -5,7 +5,7 @@ import styles from "./MovieTrailerPopup.module.css";
 interface MovieTrailerPopupProps {
   isOpen: boolean;
   onClose: () => void;
-  trailerUrl: string;
+  trailerUrl?: string;
 }
 
 const MovieTrailerPopup: FC<MovieTrailerPopupProps> = ({

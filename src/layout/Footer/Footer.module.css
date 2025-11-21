@@ -23,13 +23,271 @@
 
 .footer__item {
   display: block;
-
 }
 
 .footer__link {
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
-  background: none;
-  fill: none;
-  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.footer__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.footer__link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  transition: all 0.4s ease;
+  transform: translate(-50%, -50%);
+}
+
+.footer__link svg {
+  width: 26px;
+  height: 26px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  position: relative;
+  z-index: 2;
+}
+
+.footer__link:hover {
+  color: white;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer__link:hover::before {
+  left: 100%;
+}
+
+.footer__link:hover::after {
+  width: 120%;
+  height: 120%;
+}
+
+.footer__link:hover svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.footer__link:hover[href*="vk"] {
+  background: linear-gradient(135deg, #0077ff 0%, #004cff 100%);
+}
+
+.footer__link:hover[href*="youtube"] {
+  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+}
+
+.footer__link:hover[href*="ok"] {
+  background: linear-gradient(135deg, #ee8208 0%, #d26900 100%);
+}
+
+.footer__link:hover[href*="telegram"] {
+  background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+}
+
+.footer__link:active {
+  transform: translateY(-2px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding-top: 100px;
+  }
+
+  .footer__content {
+    gap: 70px;
+    padding: 35px 0;
+  }
+
+  .footer__link {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+  }
+
+  .footer__link svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 80px;
+  }
+
+  .footer__content {
+    justify-content: center;
+    gap: 50px;
+    padding: 30px 0;
+  }
+
+  .footer__list {
+    gap: 20px;
+  }
+
+  .footer__link {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .footer__link svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding-top: 60px;
+  }
+
+  .footer__content {
+    gap: 35px;
+    padding: 25px 0;
+  }
+
+  .footer__list {
+    gap: 16px;
+  }
+
+  .footer__link {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+
+  .footer__link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer__content {
+    gap: 30px;
+    padding: 20px 0;
+  }
+
+  .footer__list {
+    gap: 14px;
+  }
+
+  .footer__link {
+    width: 42px;
+    height: 42px;
+    border-radius: 9px;
+  }
+
+  .footer__link svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media (hover: none) {
+  .footer__link:hover {
+    transform: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .footer__link:hover::before {
+    left: -100%;
+  }
+
+  .footer__link:hover::after {
+    width: 0;
+    height: 0;
+  }
+
+  .footer__link:hover svg {
+    transform: none;
+  }
+
+  .footer__link:hover[href*="vk"],
+  .footer__link:hover[href*="youtube"],
+  .footer__link:hover[href*="ok"],
+  .footer__link:hover[href*="telegram"] {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  }
+
+  .footer__link:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__link,
+  .footer__link::before,
+  .footer__link::after,
+  .footer__link svg {
+    transition: none;
+    animation: none;
+  }
+
+  .footer__link::before,
+  .footer__link::after {
+    display: none;
+  }
+}
+
+.footer__link:focus-visible {
+  outline: 2px solid #dc5dfc;
+  outline-offset: 3px;
+  transform: scale(1.05);
 }

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AuthModal } from "../AuthModal/AuthModal";
 import style from "./AuthButtons.module.css";
 import { usePathname } from "next/navigation";
@@ -9,7 +9,12 @@ import Link from "next/link";
 export const AuthButtons = () => {
   const pathName = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { user, logout } = useAuth();
+  const [updateKey, setUpdateKey] = useState(0);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    setUpdateKey((prev: number) => prev + 1);
+  }, [pathName]);
 
   if (user) {
     return (
@@ -18,6 +23,7 @@ export const AuthButtons = () => {
         className={`${style.navLink} ${
           pathName === "/account" ? "active" : ""
         }`}
+        key={updateKey}
       >
         {user.name}
       </Link>

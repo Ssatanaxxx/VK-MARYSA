@@ -12,12 +12,41 @@
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
 .movieCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   border-color: rgba(255, 255, 255, 0.2);
+}
+
+.removeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.removeButton:hover {
+  background: #67a5eb;
+  transform: scale(1.1);
+  color: #393b3c;
+}
+
+.removeButton:active {
+  transform: scale(0.95);
 }
 
 .movieLink {
@@ -80,18 +109,129 @@
 @media (max-width: 768px) {
   .moviesGrid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
+    gap: 20px;
   }
-  
+
   .posterContainer {
-    height: 300px;
+    height: 280px;
   }
-  
+
   .movieInfo {
     padding: 16px;
   }
-  
+
   .title {
     font-size: 16px;
+  }
+
+  .year,
+  .rating,
+  .genres {
+    font-size: 13px;
+  }
+
+  .removeButton {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .posterContainer {
+    height: 220px;
+  }
+
+  .movieInfo {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .year,
+  .rating,
+  .genres {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .removeButton {
+    width: 28px;
+    height: 28px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .movieCard:hover {
+    transform: translateY(-3px);
+  }
+
+  .movieCard:hover .poster {
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 375px) {
+  .moviesGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .posterContainer {
+    height: 200px;
+  }
+
+  .movieInfo {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .year,
+  .rating,
+  .genres {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .posterContainer {
+    height: 180px;
+  }
+
+  .movieInfo {
+    padding: 8px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}
+
+@media (hover: none) {
+  .movieCard:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .movieCard:hover .poster {
+    transform: none;
+  }
+
+  .removeButton:hover {
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }

@@ -1,4 +1,3 @@
-/* Основная карточка фильма - FLEXBOX */
 .movieCard {
   display: flex;
   gap: 60px;
@@ -10,24 +9,22 @@
   margin: 0 auto;
 }
 
-/* Контент - СЛЕВА */
 .movieCard__info {
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 20px 0;
-  flex: 1; /* Занимает всё доступное пространство */
+  flex: 1;
 }
 
-/* Постер - СПРАВА */
 .movieCard__poster {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
   background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
   aspect-ratio: 680 / 552;
-  flex-shrink: 0; /* Чтобы не сжимался */
-  width: 680px; /* Фиксированная ширина */
+  flex-shrink: 0;
+  width: 680px;
   max-width: 100%;
 }
 
@@ -38,7 +35,6 @@
   border-radius: 20px;
 }
 
-/* Заголовок с мета-данными */
 .movieCard__heading {
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +62,6 @@
   font-size: 16px;
 }
 
-/* Название фильма */
 .movieCard__title {
   margin: 0;
   font-weight: 700;
@@ -75,15 +70,6 @@
   color: white;
 }
 
-/* Описание */
-.movieCard__description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-}
-
-/* Кнопки */
 .movieCard__btns {
   display: flex;
   align-items: center;
@@ -116,51 +102,6 @@
   opacity: 0.6;
 }
 
-.movieCard__favoriteBtn {
-  width: 68px;
-  height: 56px;
-  border-radius: 28px;
-  background-color: #333;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.movieCard__favoriteBtn:hover:not(:disabled) {
-  background-color: #444;
-  border-color: #67a5eb;
-  transform: translateY(-2px);
-}
-
-.movieCard__favoriteBtnActive {
-  background-color: #e50914;
-  border-color: #e50914;
-}
-
-.movieCard__favoriteBtnLoading {
-  opacity: 0.7;
-  cursor: wait;
-}
-
-.loadingSpinner {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ===== АДАПТИВ FLEXBOX ===== */
-/* 1140px - Большие десктопы */
 @media (max-width: 1140px) {
   .movieCard {
     gap: 50px;
@@ -174,13 +115,8 @@
   .movieCard__title {
     font-size: 42px;
   }
-
-  .movieCard__description {
-    font-size: 17px;
-  }
 }
 
-/* 1024px - Десктопы */
 @media (max-width: 1024px) {
   .movieCard {
     gap: 40px;
@@ -194,16 +130,11 @@
     font-size: 36px;
   }
 
-  .movieCard__description {
-    font-size: 16px;
-  }
-
   .movieCard__heading {
     font-size: 15px;
   }
 }
 
-/* 900px - Планшеты горизонтальные */
 @media (max-width: 900px) {
   .movieCard {
     flex-direction: column;
@@ -231,7 +162,6 @@
   }
 }
 
-/* 768px - Планшеты вертикальные */
 @media (max-width: 768px) {
   .movieCard {
     gap: 32px;
@@ -242,17 +172,12 @@
     font-size: 32px;
   }
 
-  .movieCard__description {
-    font-size: 16px;
-  }
-
   .movieCard__trailerBtn {
     min-width: 160px;
     padding: 14px 28px;
   }
 }
 
-/* 600px - Большие мобильные */
 @media (max-width: 600px) {
   .movieCard {
     gap: 28px;
@@ -261,10 +186,6 @@
 
   .movieCard__title {
     font-size: 28px;
-  }
-
-  .movieCard__description {
-    font-size: 15px;
   }
 
   .movieCard__heading {
@@ -287,14 +208,8 @@
     padding: 12px 24px;
     font-size: 15px;
   }
-
-  .movieCard__favoriteBtn {
-    width: 56px;
-    height: 48px;
-  }
 }
 
-/* 480px - Мобильные */
 @media (max-width: 480px) {
   .movieCard {
     gap: 24px;
@@ -303,10 +218,6 @@
 
   .movieCard__title {
     font-size: 24px;
-  }
-
-  .movieCard__description {
-    font-size: 14px;
   }
 
   .movieCard__heading {
@@ -323,15 +234,8 @@
     width: 100%;
     min-width: auto;
   }
-
-  .movieCard__favoriteBtn {
-    width: 100%;
-    max-width: 200px;
-    height: 48px;
-  }
 }
 
-/* 375px - Маленькие мобильные */
 @media (max-width: 375px) {
   .movieCard {
     gap: 20px;
@@ -340,10 +244,6 @@
 
   .movieCard__title {
     font-size: 22px;
-  }
-
-  .movieCard__description {
-    font-size: 13px;
   }
 
   .ratingContent {

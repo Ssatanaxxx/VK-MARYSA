@@ -64,7 +64,17 @@
   outline: none;
 }
 
-/* Анимации */
+.popup__close svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  transition: fill 0.3s ease;
+}
+
+.popup__close:hover svg {
+  fill: #8b008b;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -83,57 +93,106 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .popup__content {
+    max-width: 92vw;
+    max-height: 85vh;
+  }
+  
+  .popup__main {
+    max-height: 75vh;
+  }
+}
+
 @media (max-width: 768px) {
   .popup__content {
     max-width: 95vw;
-    max-height: 70vh;
-    border-radius: 8px;
+    max-height: 80vh;
+    border-radius: 10px;
   }
 
   .popup__close {
-    top: 10px;
-    right: 10px;
-    width: 35px;
-    height: 35px;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
   }
 
   .popup__main {
     max-height: 70vh;
+  }
+  
+  .popup__close svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
 @media (max-width: 480px) {
   .popup__content {
     max-width: 98vw;
-    max-height: 60vh;
+    max-height: 70vh;
+    border-radius: 8px;
   }
 
   .popup__close {
     top: 8px;
     right: 8px;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
+    border-width: 1.5px;
   }
 
   .popup__main {
     max-height: 60vh;
   }
-}
-
-.popup__close svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-  transition: fill 0.3s ease;
-}
-
-.popup__close:hover svg {
-  fill: #8b008b;
-}
-
-@media (max-width: 768px) {
+  
   .popup__close svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  @media (hover: none) {
+    .popup__close:hover {
+      transform: none;
+      background: rgba(0, 0, 0, 0.7);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .popup__close:hover svg {
+      fill: white;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .popup__content {
+    max-height: 65vh;
+  }
+  
+  .popup__main {
+    max-height: 55vh;
+  }
+  
+  .popup__close {
+    width: 28px;
+    height: 28px;
+    top: 6px;
+    right: 6px;
+  }
+  
+  .popup__close svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .popup__content {
+    max-height: 90vh;
+  }
+  
+  .popup__main {
+    max-height: 80vh;
   }
 }

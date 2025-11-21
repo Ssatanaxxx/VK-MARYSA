@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./MoviesList.module.css";
 import Image from "next/image";
+import { UIVector } from "../UI-kit/UIVector/UIVector";
 
 export const MoviesList = () => {
   const params = useParams();
@@ -31,7 +32,7 @@ export const MoviesList = () => {
         <div className={styles.movies__content}>
           <div className={styles.movies__titleContainer}>
             <Link className={styles.movies__titleBtn} href="/genres">
-              {"<"}
+              <UIVector/>
             </Link>
             <h2 className={styles.movies__title}>{genre}</h2>
           </div>

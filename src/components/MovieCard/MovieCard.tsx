@@ -4,7 +4,8 @@ import styles from "./MovieCard.module.css";
 import { IMovie } from "@/api/schemas/Movies";
 import Image from "next/image";
 import minutesToString from "../../utils/minutesToString";
-import { useFavorites } from "@/hooks/useFavorites";
+import UIFavoriteButton from "../UI-kit/UIFavoriteButton/UIFavoriteButton";
+import MovieTrailerPopup from "../MovieTrailerPopup/MovieTrailerPopup";
 
 interface MovieCardProps {
   movie: IMovie;
@@ -12,17 +13,9 @@ interface MovieCardProps {
 
 export const MovieCard: FC<MovieCardProps> = ({ movie }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const { useIsFavorite, toggleFavorite, isAdding } = useFavorites();
-
-  const { data: isFavorite = false } = useIsFavorite(movie.id);
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
-  };
-
-  const handleFavoriteClick = () => {
-    console.log("Favorite button clicked for movie:", movie.id);
-    toggleFavorite(movie.id);
   };
 
   return (
@@ -55,34 +48,20 @@ export const MovieCard: FC<MovieCardProps> = ({ movie }) => {
                 {minutesToString(movie.runtime)}
               </span>
             </div>
-
             <h1 className={styles.movieCard__title}>{movie.title}</h1>
             <div className={styles.movieCard__btns}>
               <button
-                className={`${styles.movieCard__trailerBtn} ${styles.btn} ${styles.btnActive}`}
+                className={`${styles.movieCard__trailerBtn} btn btn--active`}
                 onClick={togglePopup}
-                disabled={!movie.trailerYoutubeId}
               >
-                {movie.trailerYoutubeId ? "Трейлер" : "Трейлер недоступен"}
+                Трейлер
               </button>
-              <button
-                className={`${styles.movieCard__favoriteBtn} ${styles.btn} ${
-                  isFavorite ? styles.movieCard__favoriteBtnActive : ""
-                } ${isAdding ? styles.movieCard__favoriteBtnLoading : ""}`}
-                onClick={handleFavoriteClick}
-                disabled={isAdding}
-                title={
-                  isFavorite ? "Удалить из избранного" : "Добавить в избранное"
-                }
-              >
-                {isAdding ? (
-                  <span className={styles.loadingSpinner}>...</span>
-                ) : (
-                  <svg width="24" height="24" aria-hidden="true">
-                    <use href="/sprites.svg#icon-favorite"></use>
-                  </svg>
-                )}
-              </button>
+              <MovieTrailerPopup
+                isOpen={isPopupOpen}
+                onClose={togglePopup}
+                trailerUrl={movie.trailerUrl}
+              />
+              <UIFavoriteButton movie={movie as IMovie} />
             </div>
           </div>
         </div>

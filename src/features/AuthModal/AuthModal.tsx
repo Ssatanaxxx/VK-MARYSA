@@ -22,6 +22,13 @@ export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     setShowSuccessMessage(false);
   };
 
+  const handleRegisterSuccess = () => {
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      switchToLogin();
+    }, 2000);
+  };
+
   const handleClose = () => {
     setShowSuccessMessage(false);
     onClose();
@@ -33,10 +40,10 @@ export const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     <LoginForm onSwitchToRegister={switchToRegister} onClose={handleClose} />
   ) : (
     <RegisterForm
-        onSwitchToLogin={switchToLogin}
-        onClose={handleClose}
-        showSuccessMessage={showSuccessMessage} onRegisterSuccess={function (): void {
-          throw new Error("Function not implemented.");
-        } }    />
+      onSwitchToLogin={switchToLogin}
+      onClose={handleClose}
+      showSuccessMessage={showSuccessMessage}
+      onRegisterSuccess={handleRegisterSuccess}
+    />
   );
 };
