@@ -22,6 +22,11 @@
   border-bottom-color: #dc5dfc;
 }
 
+.iconUser {
+  width: 44px;
+  height: 34px;
+}
+
 @media (max-width: 1200px) {
   .navLink {
     font-size: 22px;

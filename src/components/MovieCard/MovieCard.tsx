@@ -30,6 +30,7 @@ export const MovieCard: FC<MovieCardProps> = ({ movie }) => {
               height={552}
               className={styles.movieCard__img}
               priority
+              loading="lazy"
             />
           </div>
 
@@ -49,6 +50,11 @@ export const MovieCard: FC<MovieCardProps> = ({ movie }) => {
               </span>
             </div>
             <h1 className={styles.movieCard__title}>{movie.title}</h1>
+            <p className={styles.movieCard__description}>
+              {movie.plot ||
+                "Увлекательные приключения самого известного сыщика всех времен"}
+            </p>
+            <div className={styles.divider} />
             <div className={styles.movieCard__btns}>
               <button
                 className={`${styles.movieCard__trailerBtn} btn btn--active`}

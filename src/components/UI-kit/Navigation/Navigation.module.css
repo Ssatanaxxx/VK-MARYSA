@@ -95,6 +95,12 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.navLink__Icon {
+  display: none;
+  width: 24px;
+  height: 24px;
+}
+
 @media (max-width: 1200px) {
   .navList {
     gap: 32px;
@@ -125,6 +131,14 @@
   .searchInputWrapper {
     margin-left: 16px;
   }
+
+  .navLink__main {
+    display: none;
+  }
+
+  .navLink {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -144,6 +158,7 @@
   .searchInputWrapper {
     padding: 10px 12px;
     gap: 10px;
+    width: 0%;
   }
 
   .searchIcon {
@@ -152,6 +167,14 @@
 
   .searchInput {
     font-size: 15px;
+  }
+
+  .navLink__Icon {
+    display: block;
+  }
+
+  .searchContainer {
+    width: 0;
   }
 }
 

@@ -4,7 +4,6 @@
   align-items: flex-start;
   color: white;
   padding: 40px 0;
-  max-width: 1200px;
 }
 
 .content {
@@ -13,6 +12,8 @@
   gap: 24px;
   padding: 20px 0;
   flex: 1;
+  min-height: 336px;
+  justify-content: flex-start;
 }
 
 .poster {
@@ -85,6 +86,16 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+.movieCard__description::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
 }
 
 .divider {

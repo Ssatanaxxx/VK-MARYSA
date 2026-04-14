@@ -1,6 +1,5 @@
 "use client";
 import styles from "./Navigation.module.css";
-import IconSearch from "../../../../public/search-icon.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,16 +7,16 @@ import { ChangeEvent, useState, useRef, useEffect } from "react";
 import { useMovies } from "@/hooks/useIMovie";
 import SearchDropdown from "@/components/UI-kit/SearchDropdown/SearchDropdown";
 
+import IconSearch from "@/../public/search-icon.svg";
+import IconGenre from "@/../public/genres.svg";
+
 export const Navigation = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathName = usePathname();
   const searchRef = useRef<HTMLDivElement>(null);
 
-  const {
-    data: searchResults,
-    isLoading: isSearching,
-  } = useMovies(
+  const { data: searchResults, isLoading: isSearching } = useMovies(
     {
       limit: 5,
       title: searchQuery,
@@ -62,7 +61,7 @@ export const Navigation = () => {
         <li className={styles.navItem}>
           <Link
             href="/"
-            className={`${styles.navLink} ${
+            className={`${styles.navLink} ${styles.navLink__main} ${
               pathName === "/" ? styles.navLinkActive : ""
             }`}
           >
@@ -78,6 +77,13 @@ export const Navigation = () => {
           >
             Жанры
           </Link>
+          <Image
+            width={24}
+            height={24}
+            className={styles.navLink__Icon}
+            src={IconGenre}
+            alt={"Иконка жанров"}
+          ></Image>
         </li>
         <li className={styles.navItem}>
           <div className={styles.searchContainer} ref={searchRef}>
